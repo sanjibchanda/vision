@@ -52,5 +52,38 @@ h5 {
 }
 
 .hero-bg {
-  background: url("./assets/images/hero-bg.jpg") no-repeat top center / cover;
+  background-image: url("./assets/images/hero-bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
 }
+.bg-arrival1 {
+  background-image: url("./assets/images/arrival1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.bg-arrival2 {
+  background-image: url("./assets/images/arrival2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.bg-arrival3 {
+  background-image: url("./assets/images/arrival3.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.bg-arrival4 {
+  background-image: url("./assets/images/arrival4.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* @media (min-resolution: 1.25dppx), (min-device-pixel-ratio: 1.25) {
+  .bg-arrival1 {
+    background-image: url("./assets/images/arrival1@2x.jpg");
+  }
+} */

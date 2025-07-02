@@ -4,10 +4,10 @@ import heroImg from "../assets/images/hero-img.png";
 import heroImg2x from "../assets/images/hero-img@2x.png";
 import Container from "./Container";
 
-const Hero = () => {
+const Hero = ({ className = "" }) => {
   return (
     <>
-      <section className="hero-bg text-white py-12 xl:py-0">
+      <section className={`hero-bg text-white py-12 xl:py-0 ${className}`}>
         <Container>
           <div className="grid md:grid-cols-2 gap-6 items-center">
             <div className="space-y-6">

@@ -9,7 +9,7 @@ const filterButtons = [
   { label: "Newly Upcoming", value: "upcoming" },
 ];
 
-const Products = () => {
+const Products = ({ className = "" }) => {
   const [filter, setFilter] = useState("all");
 
   const filteredProducts =
@@ -18,8 +18,8 @@ const Products = () => {
       : productData.filter((item) => item.category === filter);
 
   return (
-    <section className="mt-12 md:mt-16 xl:mt-20">
-      <Container className="space-y-10">
+    <section className={className}>
+      <Container className="space-y-6 md:space-y-8 xl:space-y-10">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 md:gap-8">
           <div className="space-y-4">
             <h3 className="text-accent font-semibold font-heading">

@@ -4,10 +4,10 @@ import { NavLink } from "react-router";
 import { IoIosArrowForward } from "react-icons/io";
 import offerData from "../assets/OfferData"; // or move data directly in this file
 
-const Offer = () => {
+const Offer = ({ className = "" }) => {
   return (
     <>
-      <section className="mt-12">
+      <section className={className}>
         <Container>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {offerData.map((item) => (

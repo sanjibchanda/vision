@@ -8,7 +8,7 @@ import NewsletterButton from "./newsletterButton";
 const Footer = () => {
   return (
     <>
-      <section className="bg-black text-white space-section">
+      <section className="bg-black text-white py-12 md:py-16 xl:py-20">
         <Container className="">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-6">
             <div className="space-y-4 sm:col-span-2 lg:col-span-1">

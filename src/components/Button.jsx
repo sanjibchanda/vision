@@ -16,11 +16,13 @@ const Button = ({
       primary: "bg-primary text-white hover:bg-primary-dark",
       secondary: "bg-gray-800 text-white hover:bg-gray-700",
       light: "bg-white text-accent hover:bg-black hover:text-white",
+      dark: "bg-black text-white hover:bg-black/70 hover:text-white",
     },
     outline: {
       primary: "border border-primary text-primary hover:bg-primary/10",
       secondary: "border border-gray-800 text-gray-800 hover:bg-gray-100",
       light: "border border-white text-white hover:bg-black hover:border-black",
+      dark: "border border-black text-black hover:bg-black hover:border-black",
     },
     ghost: {
       primary: "text-primary hover:bg-primary/10",

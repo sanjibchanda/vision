@@ -52,7 +52,7 @@ const NewArrival = ({ className = "" }) => {
             {arrivalItems.map((item, index) => (
               <div
                 key={index}
-                className={`flex flex-col justify-end p-8 text-white space-y-2 ${item.bg} ${item.colSpan} ${item.align} ${item.height}`}
+                className={`flex flex-col justify-end p-8 text-white space-y-2 cursor-pointer ${item.bg} ${item.colSpan} ${item.align} ${item.height}`}
               >
                 <h4 className="font-heading font-bold whitespace-pre-line">
                   {item.title}

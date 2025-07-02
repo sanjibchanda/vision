@@ -1,13 +1,56 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 @theme {
-  --font-poppins: Poppins, sans-serif;
+  --color-primary: #2667ff;
+  --color-secondary: #d3643f;
+  --color-teritory: #746461;
+  --color-accent: #333333;
+  --color-muted: #999999;
+  --color-success: #008000;
+  --color-error: #ff0000;
+  --color-border: #d9d9d9;
+  --color-surface: #ededed;
+  --color-surface2: #f6f6f6;
+  --font-heading: "Montserrat", sans-serif;
+  --font-body: Poppins, sans-serif;
 }
 body {
-  font-family: var(--font-poppins);
+  @apply font-body;
 }
+
+@layer utilities {
+  .container {
+  }
+}
+
+h1 {
+  @apply text-[2.5rem] md:text-[3rem] lg:text-[4rem];
+  line-height: 1.2;
+}
+h2 {
+  @apply text-[2rem] md:text-[2rem] lg:text-[2.5rem];
+  line-height: 1.2;
+}
+h3 {
+  @apply text-[1.5rem] md:text-[1.5rem] lg:text-[2em];
+  line-height: 1.2;
+}
+h4 {
+  @apply text-[1.25rem] md:text-[1.25rem] lg:text-[1.5rem];
+  line-height: 1.2;
+}
+h5 {
+  @apply text-[1.125rem] md:text-[1.125rem] lg:text-[1.25rem];
+  line-height: 1.2;
+}
+
 .active {
   @apply text-blue-500;
+}
+
+.hero-bg {
+  background: url("./assets/images/hero-bg.jpg") no-repeat top center / cover;
 }

@@ -1,13 +1,16 @@
 import React from "react";
 import { useNavigate } from "react-router";
+import Hero from "../components/Hero";
+import Offer from "../components/Offer";
+import Products from "../components/Products";
 
 const Home = () => {
   const navigate = useNavigate();
   return (
     <>
-      <div className="container max-w-[1340px] mx-auto px-3">
-        <button onClick={() => navigate(-1)}>back</button>
-      </div>
+      <Hero />
+      <Offer />
+      <Products />
     </>
   );
 };

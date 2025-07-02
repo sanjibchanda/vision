@@ -1,15 +1,15 @@
 import React from "react";
-import { LuCrown } from "react-icons/lu";
 import Navbar from "./Navbar";
 import { NavLink } from "react-router";
+import logoDark from "../assets/images/logoDark.svg";
 
 const Header = () => {
   return (
     <>
-      <header className="bg-gray-800 py-4">
+      <header className="bg-white shadow-sm py-4">
         <div className="container max-w-[1340px] mx-auto px-3 flex justify-between items-center">
           <NavLink to="/">
-            <LuCrown className="text-white text-2xl" />
+            <img src={logoDark} alt="logo" className="w-32 xl:w-40" />
           </NavLink>
           <Navbar />
         </div>

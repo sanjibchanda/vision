@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router";
 import { navItems } from "./navData";
-import { LuMenu, LuSearch, LuShoppingCart, LuX } from "react-icons/lu";
+import { LuMenu, LuSearch, LuShoppingCart, LuX, LuUser } from "react-icons/lu";
+import { FaRegHeart } from "react-icons/fa";
 import SearchOverlay from "./SearchOverlay";
 
 const Navbar = () => {
@@ -18,7 +19,7 @@ const Navbar = () => {
   return (
     <nav className="relative">
       {/* Mobile Menu Button */}
-      <ul className="flex items-center gap-3 md:hidden text-white text-xl cursor-pointer z-30">
+      <ul className="flex items-center gap-3 md:hidden text-accent text-xl cursor-pointer z-30">
         <li onClick={() => setSearchOpen(true)}>
           <LuSearch />
         </li>
@@ -52,8 +53,8 @@ const Navbar = () => {
       {/* Slide-In Nav Menu */}
       <ul
         className={`
-          flex flex-col md:flex-row gap-6 p-6 md:p-0 text-white items-start md:items-center
-          bg-gray-900 md:bg-transparent z-20
+          flex flex-col md:flex-row gap-4 xl:gap-6 p-6 md:p-0 text-accent items-start md:items-center
+          bg-surface md:bg-transparent z-20
           fixed md:static top-0 right-0 h-full w-64 md:w-auto
           transform md:transform-none transition-transform duration-300 ease-in-out
           ${menuOpen ? "translate-x-0" : "translate-x-full md:translate-x-0"}
@@ -65,9 +66,7 @@ const Navbar = () => {
             <NavLink
               to={item.path}
               className={({ isActive }) =>
-                isActive
-                  ? "text-yellow-400 font-semibold"
-                  : "hover:text-yellow-400"
+                isActive ? "text-primary font-medium" : "hover:text-primary"
               }
               onClick={() => setMenuOpen(false)} // close drawer on click
             >
@@ -75,6 +74,22 @@ const Navbar = () => {
             </NavLink>
           </li>
         ))}
+        <li onClick={() => setSearchOpen(true)}>
+          <LuSearch className="text-lg" />
+        </li>
+        <li>
+          <NavLink to="/account">
+            <LuUser className="text-lg" />
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/wishlist">
+            <FaRegHeart className="text-lg" />
+          </NavLink>
+        </li>
+        <li onClick={() => setCartOpen(true)}>
+          <LuShoppingCart className="text-lg" />
+        </li>
       </ul>
 
       {/* Search Overlay */}
@@ -89,7 +104,7 @@ const Navbar = () => {
 
       {/* Optional Cart Drawer Placeholder */}
       {cartOpen && (
-        <div className="fixed top-0 right-0 w-80 h-full bg-white z-30 shadow-lg p-4 md:hidden">
+        <div className="fixed top-0 right-0 w-80 h-full bg-white z-30 shadow-lg p-4">
           <button
             className="absolute top-4 right-4 text-xl"
             onClick={() => setCartOpen(false)}

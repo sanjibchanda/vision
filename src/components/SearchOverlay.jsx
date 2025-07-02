@@ -18,7 +18,7 @@ const SearchOverlay = ({ isOpen, onClose, onSearch }) => {
       <div className="relative w-full max-w-xl">
         <button
           onClick={onClose}
-          className="absolute top-0 right-0 p-3 text-black text-2xl"
+          className="absolute top-1 right-0 p-3 text-black text-2xl"
         >
           <LuX />
         </button>

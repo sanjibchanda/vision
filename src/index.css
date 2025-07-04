@@ -52,6 +52,19 @@ h5 {
   @apply text-blue-500;
 }
 
+.prodSingleSLider .slick-dots {
+  bottom: 1.5rem;
+}
+.prodSingleSLider .slick-dots li {
+  @apply rounded-full bg-white size-3;
+}
+.prodSingleSLider .slick-dots li.slick-active {
+  @apply w-8;
+}
+.prodSingleSLider .slick-dots li button:before {
+  content: none;
+}
+
 .hero-bg {
   background-image: url("./assets/images/hero-bg.jpg");
   background-size: cover;

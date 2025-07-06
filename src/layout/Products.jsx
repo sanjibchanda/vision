@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 import { Container, Product } from "../components";
 import { productData } from "../data";
 
@@ -15,6 +18,39 @@ const Products = ({ className = "" }) => {
     filter === "all"
       ? productData
       : productData.filter((item) => item.category === filter);
+
+  var settings = {
+    dots: false,
+    arrows: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1280,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
 
   return (
     <section className={className}>
@@ -45,10 +81,12 @@ const Products = ({ className = "" }) => {
           </div>
         </div>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
-          {filteredProducts.map((item) => (
-            <Product key={item.id} data={item} />
-          ))}
+        <div className="productSlider">
+          <Slider {...settings}>
+            {filteredProducts.map((item) => (
+              <Product key={item.id} data={item} />
+            ))}
+          </Slider>
         </div>
       </Container>
     </section>

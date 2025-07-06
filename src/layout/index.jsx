@@ -10,4 +10,5 @@ export { default as NewArrival } from "./NewArrival";
 export { default as Category } from "./Category";
 export { default as Brand } from "./Brand";
 export { default as BoxContent } from "./BoxContent";
+export { default as BoxContent2 } from "./BoxContent2";
 export { default as BoxSliderContent } from "./BoxSliderContent";

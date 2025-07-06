@@ -4,6 +4,9 @@ import secure from "./images/secure.svg";
 import shippingVan from "./images/shipping-van.svg";
 import support from "./images/support.svg";
 import exchange from "./images/exchange.svg";
+import clockRecord from "./images/clock-record.svg";
+import alarm from "./images/alarm.svg";
+import notification from "./images/notification.svg";
 
 import noise from "./images/brand/noise.svg";
 import sphere from "./images/brand/sphere.svg";
@@ -60,12 +63,20 @@ import heroImg_2x from "./images/hero-img@2x.png";
 
 import heroBg from "./images/hero-bg.jpg";
 import offerBg from "./images/offer-bg.jpg";
+import womenMeditation from "./images/women-meditation.jpg";
+import womenMeditation_2x from "./images/women-meditation@2x.jpg";
 
 export const assets = {
   secure,
   shippingVan,
   support,
   exchange,
+  clockRecord,
+  alarm,
+  notification,
+
+  womenMeditation,
+  womenMeditation_2x,
 
   logo: {
     light: logoLight,

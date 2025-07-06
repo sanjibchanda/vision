@@ -67,15 +67,22 @@ h5 {
 .categorySlider .slick-slide > div {
   @apply mx-2;
 }
-.categorySlider .slick-next {
-  right: 0;
-}
-.categorySlider .slick-prev {
-  left: 0;
+.productSlider .slick-slide > div {
+  @apply mx-3;
 }
 .slick-prev,
 .slick-next {
   @apply z-10;
+}
+.slick-prev {
+  left: 0 !important;
+}
+.slick-next {
+  right: 0 !important;
+}
+.slick-prev:before,
+.slick-next:before {
+  color: #000 !important;
 }
 
 .hero-bg {

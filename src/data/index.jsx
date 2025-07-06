@@ -1,5 +1,6 @@
 export { default as offerData } from "./OfferData";
 export { default as boxContentData } from "./boxContentData";
+export { default as boxContentData2 } from "./boxContentData2";
 export { default as cartData } from "./cartData";
 export { default as navItems } from "./navData";
 export { default as newsData } from "./newsData";

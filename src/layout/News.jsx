@@ -1,8 +1,44 @@
 import React from "react";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 import { Container, Post } from "../components";
 import { newsData } from "../data";
 
 const News = ({ className = "" }) => {
+  var settings = {
+    dots: false,
+    arrows: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1280,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   return (
     <>
       <section className={className}>
@@ -16,10 +52,12 @@ const News = ({ className = "" }) => {
               you're not alone.
             </p>
           </div>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
-            {newsData.map((item) => (
-              <Post key={item.id} {...item} />
-            ))}
+          <div className="newsSlider">
+            <Slider {...settings}>
+              {newsData.map((item) => (
+                <Post key={item.id} {...item} />
+              ))}
+            </Slider>
           </div>
         </Container>
       </section>

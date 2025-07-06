@@ -87,6 +87,10 @@ h5 {
   @apply mx-3;
 }
 
+.newsSlider .slick-slide > div {
+  @apply mx-3;
+}
+
 .testimonialSlider .slick-slide > div {
   @apply mx-3;
 }

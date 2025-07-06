@@ -37,6 +37,15 @@ const newsData = [
     image2x: assets.post.post4_2x,
     link: "#",
   },
+  {
+    id: 5,
+    title: "Smart Home Setup Tips",
+    description: "How to start small and scale up your smart home system.",
+    date: "February 5, 2025",
+    image: assets.post.post2,
+    image2x: assets.post.post2_2x,
+    link: "#",
+  },
 ];
 
 export default newsData;

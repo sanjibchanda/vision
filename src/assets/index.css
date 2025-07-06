@@ -47,9 +47,23 @@ h5 {
   @apply text-[1.125rem] md:text-[1.125rem] lg:text-[1.25rem];
   line-height: 1.2;
 }
-
 .active {
   @apply text-blue-500;
+}
+
+.slick-prev,
+.slick-next {
+  @apply z-10;
+}
+.slick-prev {
+  left: 0 !important;
+}
+.slick-next {
+  right: 0 !important;
+}
+.slick-prev:before,
+.slick-next:before {
+  color: #000 !important;
 }
 
 .prodSingleSLider .slick-dots {
@@ -64,25 +78,29 @@ h5 {
 .prodSingleSLider .slick-dots li button:before {
   content: none;
 }
+
 .categorySlider .slick-slide > div {
   @apply mx-2;
 }
+
 .productSlider .slick-slide > div {
   @apply mx-3;
 }
-.slick-prev,
-.slick-next {
-  @apply z-10;
+
+.testimonialSlider .slick-slide > div {
+  @apply mx-3;
 }
-.slick-prev {
-  left: 0 !important;
+.testimonialSlider .slick-dots {
+  @apply -bottom-10;
 }
-.slick-next {
-  right: 0 !important;
+.testimonialSlider .slick-dots li {
+  @apply rounded-full bg-accent size-3;
 }
-.slick-prev:before,
-.slick-next:before {
-  color: #000 !important;
+.testimonialSlider .slick-dots li.slick-active {
+  @apply w-8;
+}
+.testimonialSlider .slick-dots li button:before {
+  content: none;
 }
 
 .hero-bg {
@@ -114,6 +132,21 @@ h5 {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+.promo-bg {
+  background-image: url("./images/promoBg-mob.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+
+@media (width >= 48rem) {
+  .promo-bg {
+    background-image: url("./images/promoBg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 60% 0;
+  }
 }
 
 /* @media (min-resolution: 1.25dppx), (min-device-pixel-ratio: 1.25) {

@@ -65,6 +65,14 @@ import heroBg from "./images/hero-bg.jpg";
 import offerBg from "./images/offer-bg.jpg";
 import womenMeditation from "./images/women-meditation.jpg";
 import womenMeditation_2x from "./images/women-meditation@2x.jpg";
+import promoWatch from "./images/promo-watch.png";
+
+import feedback1 from "./images/feedback1.png";
+import feedback1_2x from "./images/feedback1@2x.png";
+import feedback2 from "./images/feedback2.png";
+import feedback2_2x from "./images/feedback2@2x.png";
+import feedback3 from "./images/feedback3.png";
+import feedback3_2x from "./images/feedback3@2x.png";
 
 export const assets = {
   secure,
@@ -74,6 +82,7 @@ export const assets = {
   clockRecord,
   alarm,
   notification,
+  promoWatch,
 
   womenMeditation,
   womenMeditation_2x,
@@ -144,6 +153,14 @@ export const assets = {
     arrival2,
     arrival3,
     arrival4,
+  },
+  feedback: {
+    feedback1,
+    feedback1_2x,
+    feedback2,
+    feedback2_2x,
+    feedback3,
+    feedback3_2x,
   },
   bg: {
     heroBg,

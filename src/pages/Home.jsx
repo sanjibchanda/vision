@@ -12,6 +12,8 @@ import {
   BoxContent,
   BoxContent2,
   BoxSliderContent,
+  Testimonial,
+  Promo,
 } from "../layout";
 
 const Home = () => {
@@ -27,6 +29,8 @@ const Home = () => {
       <BoxSliderContent className="mb-12 md:mb-16 xl:mb-20" />
       <Brand className="mb-12 md:mb-16 xl:mb-20" />
       <BoxContent2 className="mb-12 md:mb-16 xl:mb-20" />
+      <Testimonial className="mb-12 md:mb-16 xl:mb-20" />
+      <Promo className="my-12 md:my-16 xl:my-20" />
       <News className="mb-12 md:mb-16 xl:mb-20" />
       <Support />
     </>

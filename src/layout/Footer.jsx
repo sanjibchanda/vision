@@ -1,19 +1,18 @@
 import React from "react";
-import Container from "./Container";
-import logoLight from "../assets/images/logoLight.svg";
+import { assets } from "../assets/assets";
 import { Link, NavLink } from "react-router";
 import { LuPhone, LuMail } from "react-icons/lu";
 import { FaFacebookSquare, FaInstagram, FaLinkedin } from "react-icons/fa";
-import NewsletterButton from "./newsletterButton";
+import { Container, NewsletterButton } from "../components";
 const Footer = () => {
   return (
     <>
       <section className="bg-black text-white py-12 md:py-16 xl:py-20">
-        <Container className="">
+        <Container>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-6">
             <div className="space-y-4 sm:col-span-2 lg:col-span-1">
               <NavLink to="/" className="block">
-                <img src={logoLight} alt="logo" className="logo" />
+                <img src={assets.logo.light} alt="logo" className="logo" />
               </NavLink>
               <p>
                 Your trusted source for high-performance sports gear. Built for

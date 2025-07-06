@@ -2,14 +2,8 @@ import React from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import Container from "./Container";
-import slider1 from "../assets/images/slider1.jpg";
-import slider1_2x from "../assets/images/slider1@2x.jpg";
-import slider2 from "../assets/images/slider2.jpg";
-import slider2_2x from "../assets/images/slider2@2x.jpg";
-import slider3 from "../assets/images/slider3.jpg";
-import slider3_2x from "../assets/images/slider3@2x.jpg";
-import Button from "./Button";
+import { Container, Button } from "../components";
+import { assets } from "../assets/assets";
 
 const BoxSliderContent = ({ className = "" }) => {
   const settings = {
@@ -25,18 +19,18 @@ const BoxSliderContent = ({ className = "" }) => {
 
   const slides = [
     {
-      src: slider1,
-      srcSet: `${slider1} 1x, ${slider1_2x} 2x`,
+      src: assets.slider.slider1,
+      srcSet: `${assets.slider.slider1} 1x, ${assets.slider.slider1_2x} 2x`,
       alt: "Smart device in living room",
     },
     {
-      src: slider2,
-      srcSet: `${slider2} 1x, ${slider2_2x} 2x`,
+      src: assets.slider.slider2,
+      srcSet: `${assets.slider.slider2} 1x, ${assets.slider.slider2_2x} 2x`,
       alt: "Voice assistant with smart light",
     },
     {
-      src: slider3,
-      srcSet: `${slider3} 1x, ${slider3_2x} 2x`,
+      src: assets.slider.slider3,
+      srcSet: `${assets.slider.slider3} 1x, ${assets.slider.slider3_2x} 2x`,
       alt: "Modern home with smart speakers",
     },
   ];

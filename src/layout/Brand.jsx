@@ -1,20 +1,14 @@
 import React from "react";
-import Container from "./Container";
-
-import brand1 from "../assets/images/brand/brand1.svg";
-import brand2 from "../assets/images/brand/brand2.svg";
-import brand3 from "../assets/images/brand/brand3.svg";
-import brand4 from "../assets/images/brand/brand4.svg";
-import brand5 from "../assets/images/brand/brand5.svg";
-import brand6 from "../assets/images/brand/brand6.svg";
+import { Container } from "../components";
+import { assets } from "../assets/assets";
 
 const brands = [
-  { name: "Noice", img: brand1 },
-  { name: "Sphere", img: brand2 },
-  { name: "Rous", img: brand3 },
-  { name: "Primus", img: brand4 },
-  { name: "Drifly", img: brand5 },
-  { name: "Connex", img: brand6 },
+  { name: "Noice", img: assets.brand.noise },
+  { name: "Sphere", img: assets.brand.sphere },
+  { name: "Rous", img: assets.brand.rous },
+  { name: "Primus", img: assets.brand.primus },
+  { name: "Drifly", img: assets.brand.drifly },
+  { name: "Connex", img: assets.brand.connex },
 ];
 
 const Brand = ({ className = "" }) => {

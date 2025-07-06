@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import Container from "./Container";
-import Product from "./Product";
-import productData from "../assets/productData";
+import { Container, Product } from "../components";
+import { productData } from "../data";
 
 const filterButtons = [
   { label: "All", value: "all" },

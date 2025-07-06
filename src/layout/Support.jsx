@@ -1,6 +1,6 @@
 import React from "react";
-import Container from "./Container";
-import supportData from "../assets/supportData";
+import { Container } from "../components";
+import { supportData } from "../data";
 
 const Support = ({ className = "" }) => {
   return (

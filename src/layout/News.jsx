@@ -1,7 +1,6 @@
 import React from "react";
-import Container from "./Container";
-import Post from "./Post";
-import newsData from "../assets/newsData";
+import { Container, Post } from "../components";
+import { newsData } from "../data";
 
 const News = ({ className = "" }) => {
   return (

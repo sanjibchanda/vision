@@ -1,8 +1,6 @@
 import React from "react";
-import Button from "./Button";
-import heroImg from "../assets/images/hero-img.png";
-import heroImg2x from "../assets/images/hero-img@2x.png";
-import Container from "./Container";
+import { assets } from "../assets/assets";
+import { Container, Button } from "../components";
 
 const Hero = ({ className = "" }) => {
   return (
@@ -32,8 +30,8 @@ const Hero = ({ className = "" }) => {
             </div>
             <div>
               <img
-                src={heroImg}
-                srcSet={`${heroImg} 1x, ${heroImg2x} 2x`}
+                src={assets.heroImg.default}
+                srcSet={`${assets.heroImg.default} 1x, ${assets.heroImg.highRes} 2x`}
                 alt="heroImg"
                 className="max-w-96 lg:max-w-full w-full mx-auto"
               />

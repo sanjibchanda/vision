@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router";
-import { navItems } from "./navData";
+import { navItems } from "../data";
 import { LuMenu, LuSearch, LuShoppingCart, LuX, LuUser } from "react-icons/lu";
 import { FaRegHeart } from "react-icons/fa";
 import SearchOverlay from "./SearchOverlay";

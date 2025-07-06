@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router";
-import Container from "./Container";
+import { Container } from "../components";
 import { FaCircle } from "react-icons/fa6";
 import { IoIosArrowForward } from "react-icons/io";
-import boxContentData from "../assets/boxContentData";
+import { boxContentData } from "../data";
 
 const BoxContent = ({ className = "", data = "" }) => {
   const content = boxContentData[data];

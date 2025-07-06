@@ -1,5 +1,5 @@
 import React from "react";
-import Container from "./Container";
+import { Container } from "../components";
 import { Link } from "react-router";
 import { IoIosArrowForward } from "react-icons/io";
 

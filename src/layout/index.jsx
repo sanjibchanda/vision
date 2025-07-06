@@ -1,0 +1,13 @@
+export { default as TopBar } from "./TopBar";
+export { default as Header } from "./Header";
+export { default as Footer } from "./Footer";
+export { default as Hero } from "./Hero";
+export { default as Offer } from "./Offer";
+export { default as Products } from "./Products";
+export { default as Support } from "./Support";
+export { default as News } from "./News";
+export { default as NewArrival } from "./NewArrival";
+export { default as Category } from "./Category";
+export { default as Brand } from "./Brand";
+export { default as BoxContent } from "./BoxContent";
+export { default as BoxSliderContent } from "./BoxSliderContent";

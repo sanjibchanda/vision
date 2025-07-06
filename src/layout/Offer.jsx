@@ -1,8 +1,8 @@
 import React from "react";
-import Container from "./Container";
+import { Container } from "../components";
 import { NavLink } from "react-router";
 import { IoIosArrowForward } from "react-icons/io";
-import offerData from "../assets/OfferData"; // or move data directly in this file
+import { offerData } from "../data"; // or move data directly in this file
 
 const Offer = ({ className = "" }) => {
   return (

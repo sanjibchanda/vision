@@ -1,9 +1,9 @@
 import React from "react";
 import { Outlet } from "react-router";
-import "./index.css";
-import TopBar from "./components/topBar";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import "./assets/index.css";
+import TopBar from "./layout/TopBar";
+import Header from "./layout/Header";
+import Footer from "./layout/Footer";
 
 const App = () => {
   return (

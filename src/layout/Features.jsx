@@ -17,7 +17,7 @@ const Features = ({ className = "" }) => {
   const filteredProducts =
     filter === "all"
       ? productData
-      : productData.filter((item) => item.category === filter);
+      : productData.filter((item) => item.sortBy === filter);
 
   var settings = {
     dots: false,

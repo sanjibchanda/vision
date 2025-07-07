@@ -2,35 +2,85 @@ import React from "react";
 import { Badge, Input, PromoCard } from "../components";
 import { Link } from "react-router";
 import { LuSearch } from "react-icons/lu";
-import { FaRegStarHalfStroke, FaStar, FaRegStar } from "react-icons/fa6";
 
-const Filter = ({ className = "" }) => {
-  let tag = "watch";
-  let tag2 = "Phones";
-  let tag3 = "Headphones";
-  let tag4 = "$50-$150";
+const Filter = ({
+  filters,
+  setFilters,
+  handleClearAll,
+  categoryCounts,
+  brandCounts,
+}) => {
+  const handleRemoveFilter = (type, value) => {
+    if (type === "search") {
+      setFilters({ ...filters, search: "" });
+    } else if (type === "categories" || type === "brands") {
+      setFilters({
+        ...filters,
+        [type]: filters[type].filter((item) => item !== value),
+      });
+    }
+  };
+
+  const handleSearchChange = (e) => {
+    setFilters({ ...filters, search: e.target.value });
+  };
+
+  const handleCheckboxChange = (type, value) => {
+    const isChecked = filters[type].includes(value);
+    const updated = isChecked
+      ? filters[type].filter((item) => item !== value)
+      : [...filters[type], value];
+    setFilters({ ...filters, [type]: updated });
+  };
+
   return (
     <>
       <div className="space-y-4">
         <div className="flex justify-between items-center font-heading text-base font-semibold text-accent py-4 border-b border-border">
           <div>Filter Option:</div>
           <div className="text-sm text-muted">
-            <Link to="/">Clear all</Link>
+            <button
+              className="cursor-pointer"
+              onClick={(e) => {
+                e.preventDefault();
+                handleClearAll();
+              }}
+            >
+              Clear all
+            </button>
           </div>
         </div>
         <div className="space-y-4 border-b border-border pb-4">
           <Input
             name="search"
             type="text"
+            value={filters.search}
             placeholder="Search Product"
+            onChange={handleSearchChange}
             icon={LuSearch}
             iconPosition="right"
           />
           <div className="flex flex-wrap gap-2">
-            <Badge key={tag} label={tag} />
-            <Badge key={tag2} label={tag2} />
-            <Badge key={tag3} label={tag3} />
-            <Badge key={tag4} label={tag4} />
+            {filters.search && (
+              <Badge
+                label={filters.search}
+                onRemove={() => handleRemoveFilter("search")}
+              />
+            )}
+            {filters.categories.map((cat) => (
+              <Badge
+                key={cat}
+                label={cat}
+                onRemove={() => handleRemoveFilter("categories", cat)}
+              />
+            ))}
+            {filters.brands.map((brand) => (
+              <Badge
+                key={brand}
+                label={brand}
+                onRemove={() => handleRemoveFilter("brands", brand)}
+              />
+            ))}
           </div>
         </div>
         <div className="space-y-4 border-b border-border pb-4">
@@ -54,33 +104,27 @@ const Filter = ({ className = "" }) => {
             Category
           </div>
           <div className="space-y-3">
-            <label className="w-full inline-flex items-center space-x-2 cursor-pointer select-none">
-              <input
-                type="checkbox"
-                className="size-4 bg-white border-2 border-gray-300 rounded-md"
-              />
-              <span className="text-sm text-accent">
-                SmartWatch <span>(250)</span>
-              </span>
-            </label>
-            <label className="w-full inline-flex items-center space-x-2 cursor-pointer select-none">
-              <input
-                type="checkbox"
-                className="size-4 bg-white border-2 border-gray-300 rounded-md"
-              />
-              <span className="text-sm text-accent">
-                Headphones <span>(250)</span>
-              </span>
-            </label>
-            <label className="w-full inline-flex items-center space-x-2 cursor-pointer select-none">
-              <input
-                type="checkbox"
-                className="size-4 bg-white border-2 border-gray-300 rounded-md"
-              />
-              <span className="text-sm text-accent">
-                SmartPhones <span>(250)</span>
-              </span>
-            </label>
+            {Object.entries(categoryCounts).map(([cat, count]) => (
+              <label
+                key={cat}
+                className="w-full inline-flex items-center space-x-2 cursor-pointer select-none"
+              >
+                <input
+                  type="checkbox"
+                  checked={filters.categories.includes(cat)}
+                  onChange={(e) => {
+                    const updated = e.target.checked
+                      ? [...filters.categories, cat]
+                      : filters.categories.filter((item) => item !== cat);
+                    setFilters({ ...filters, categories: updated });
+                  }}
+                  className="size-4 bg-white border-2 border-gray-300 rounded-md"
+                />
+                <span className="text-sm text-accent">
+                  {cat} <span>({count})</span>
+                </span>
+              </label>
+            ))}
           </div>
         </div>
         <div className="space-y-4 border-b border-border pb-4">
@@ -88,33 +132,27 @@ const Filter = ({ className = "" }) => {
             Brand
           </div>
           <div className="space-y-3">
-            <label className="w-full inline-flex items-center space-x-2 cursor-pointer select-none">
-              <input
-                type="checkbox"
-                className="size-4 bg-white border-2 border-gray-300 rounded-md"
-              />
-              <span className="text-sm text-accent">
-                Sony <span>(250)</span>
-              </span>
-            </label>
-            <label className="w-full inline-flex items-center space-x-2 cursor-pointer select-none">
-              <input
-                type="checkbox"
-                className="size-4 bg-white border-2 border-gray-300 rounded-md"
-              />
-              <span className="text-sm text-accent">
-                Noice <span>(250)</span>
-              </span>
-            </label>
-            <label className="w-full inline-flex items-center space-x-2 cursor-pointer select-none">
-              <input
-                type="checkbox"
-                className="size-4 bg-white border-2 border-gray-300 rounded-md"
-              />
-              <span className="text-sm text-accent">
-                Boat <span>(250)</span>
-              </span>
-            </label>
+            {Object.entries(brandCounts).map(([brand, count]) => (
+              <label
+                key={brand}
+                className="w-full inline-flex items-center space-x-2 cursor-pointer select-none"
+              >
+                <input
+                  type="checkbox"
+                  checked={filters.brands.includes(brand)}
+                  onChange={(e) => {
+                    const updated = e.target.checked
+                      ? [...filters.brands, brand]
+                      : filters.brands.filter((item) => item !== brand);
+                    setFilters({ ...filters, brands: updated });
+                  }}
+                  className="size-4 bg-white border-2 border-gray-300 rounded-md"
+                />
+                <span className="text-sm text-accent">
+                  {brand} <span>({count})</span>
+                </span>
+              </label>
+            ))}
           </div>
         </div>
         <div className="space-y-4 border-b border-border pb-4">

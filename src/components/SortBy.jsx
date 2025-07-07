@@ -2,7 +2,7 @@ import React from "react";
 import { CiFilter } from "react-icons/ci";
 import { FaChevronDown } from "react-icons/fa";
 
-const SortBy = () => {
+const SortBy = ({ filters, setFilters }) => {
   return (
     <>
       <div className="flex gap-3 justify-between items-center font-heading text-sm md:text-base font-semibold text-accent py-4 border-b border-border">
@@ -17,13 +17,16 @@ const SortBy = () => {
             </label>
             <div className="flex items-center">
               <select
-                id="country"
-                name="country"
+                id="sort"
+                value={filters.sortBy}
+                onChange={(e) =>
+                  setFilters({ ...filters, sortBy: e.target.value })
+                }
                 className="w-full appearance-none focus-visible:outline-0 bg-white text-sm text-gray-900"
               >
-                <option>Newest</option>
-                <option>Best seller</option>
-                <option>Trending</option>
+                <option value="Newest">Newest</option>
+                <option value="BestSeller">BestSeller</option>
+                <option value="Trending">Trending</option>
               </select>
               <FaChevronDown className="text-xs text-gray-500 pointer-events-none" />
             </div>

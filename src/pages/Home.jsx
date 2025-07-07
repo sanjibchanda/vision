@@ -1,9 +1,8 @@
 import React from "react";
-import { useNavigate } from "react-router";
 import {
   Hero,
   Offer,
-  Products,
+  Features,
   Support,
   News,
   NewArrival,
@@ -17,12 +16,11 @@ import {
 } from "../layout";
 
 const Home = () => {
-  const navigate = useNavigate();
   return (
     <>
       <Hero className="mb-12" />
       <Offer className="mb-12 md:mb-16 xl:mb-20" />
-      <Products className="mb-12 md:mb-16 xl:mb-20" />
+      <Features className="mb-12 md:mb-16 xl:mb-20" />
       <NewArrival className="mb-12 md:mb-16 xl:mb-20" />
       <Category className="mb-12 md:mb-16 xl:mb-20" />
       <BoxContent className="mb-12 md:mb-16 xl:mb-20" data="data1" />

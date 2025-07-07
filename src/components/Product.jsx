@@ -47,14 +47,14 @@ const Product = ({ data }) => {
             {label}
           </span>
         )}
-        <span className="bg-gray-500 text-white p-2 text-2xl rounded-full inline-block absolute top-1/3 right-0 z-1">
+        <span className="bg-gray-500 text-white p-2 sm:text-xl rounded-full inline-block absolute top-1/4 sm:top-1/3 right-0 z-1">
           <LuShare2 />
         </span>
-        <span className="bg-gray-900 text-white p-2 text-2xl rounded-full inline-block absolute top-1/2 right-0 z-1">
+        <span className="bg-gray-900 text-white p-2 sm:text-xl rounded-full inline-block absolute top-1/2 right-0 z-1">
           <FaRegHeart />
         </span>
         <div
-          className={`w-52 h-64 mx-auto relative ${
+          className={`w-full sm:w-40 h-40 sm:h-52 mx-auto relative ${
             stock === 0 ? "opacity-50" : "opacity-100"
           }`}
         >
@@ -68,13 +68,15 @@ const Product = ({ data }) => {
 
       <div className="space-y-8">
         <div className="space-y-2 relative">
-          <p className="font-heading font-semibold text-accent">{title}</p>
+          <p className="font-heading font-semibold text-accent text-sm sm:text-base">
+            {title}
+          </p>
           <div className="flex items-center gap-2">
-            <div className="flex items-center gap-1 text-accent text-base">
+            <div className="flex items-center gap-1 text-accent text-sm sm:text-base">
               {renderStars()}
             </div>
             <span className="flex items-center gap-1">
-              <FaRegMessage className="text-muted text-sm" />
+              <FaRegMessage className="text-muted text-xs sm:text-sm" />
               <span className="text-muted text-sm">{reviews}</span>
             </span>
           </div>
@@ -89,23 +91,23 @@ const Product = ({ data }) => {
           ) : null}
         </div>
 
-        <div className="flex items-center justify-between">
+        <div className="flex items-end justify-between">
           <div className="space-y-2">
-            <div className="flex items-center gap-2">
-              <p className="text-muted text-sm font-medium">
+            <div className="flex items-center gap-1">
+              <p className="text-muted text-xs sm:text-sm font-medium">
                 ${oldPrice.toFixed(2)}
               </p>
-              <span className="bg-primary/20 text-primary p-1.5 text-xs font-medium">
+              <span className="bg-primary/20 text-primary p-1 text-xs font-medium rounded-sm">
                 -{discount}%
               </span>
             </div>
-            <h4 className="font-heading font-semibold">
+            <h5 className="font-heading font-semibold">
               ${newPrice.toFixed(2)}
-            </h4>
+            </h5>
           </div>
           {stock > 0 && (
-            <div className="bg-primary text-white p-4 rounded-lg">
-              <LuShoppingCart className="text-xl" />
+            <div className="bg-primary text-white p-3 sm:p-4 rounded-lg">
+              <LuShoppingCart className="text-base sm:text-lg" />
             </div>
           )}
         </div>

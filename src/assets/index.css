@@ -113,6 +113,12 @@ h5 {
   background-repeat: no-repeat;
   background-position: top center;
 }
+.shop-bg {
+  background-image: url("./images/shop-bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+}
 .bg-arrival1 {
   background-image: url("./images/arrival1.jpg");
   background-size: cover;

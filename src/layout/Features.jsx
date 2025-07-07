@@ -11,7 +11,7 @@ const filterButtons = [
   { label: "Newly Upcoming", value: "upcoming" },
 ];
 
-const Products = ({ className = "" }) => {
+const Features = ({ className = "" }) => {
   const [filter, setFilter] = useState("all");
 
   const filteredProducts =
@@ -93,4 +93,4 @@ const Products = ({ className = "" }) => {
   );
 };
 
-export default Products;
+export default Features;

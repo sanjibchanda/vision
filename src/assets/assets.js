@@ -66,6 +66,7 @@ import offerBg from "./images/offer-bg.jpg";
 import womenMeditation from "./images/women-meditation.jpg";
 import womenMeditation_2x from "./images/women-meditation@2x.jpg";
 import promoWatch from "./images/promo-watch.png";
+import promoWatch2 from "./images/promo-watch2.png";
 
 import feedback1 from "./images/feedback1.png";
 import feedback1_2x from "./images/feedback1@2x.png";
@@ -83,6 +84,7 @@ export const assets = {
   alarm,
   notification,
   promoWatch,
+  promoWatch2,
 
   womenMeditation,
   womenMeditation_2x,

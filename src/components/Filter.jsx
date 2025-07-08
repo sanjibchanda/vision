@@ -25,13 +25,13 @@ const Filter = ({
     setFilters({ ...filters, search: e.target.value });
   };
 
-  const handleCheckboxChange = (type, value) => {
-    const isChecked = filters[type].includes(value);
-    const updated = isChecked
-      ? filters[type].filter((item) => item !== value)
-      : [...filters[type], value];
-    setFilters({ ...filters, [type]: updated });
-  };
+  // const handleCheckboxChange = (type, value) => {
+  //   const isChecked = filters[type].includes(value);
+  //   const updated = isChecked
+  //     ? filters[type].filter((item) => item !== value)
+  //     : [...filters[type], value];
+  //   setFilters({ ...filters, [type]: updated });
+  // };
 
   return (
     <>
@@ -81,6 +81,19 @@ const Filter = ({
                 onRemove={() => handleRemoveFilter("brands", brand)}
               />
             ))}
+            {(filters.minPrice !== 50 || filters.maxPrice !== 250) && (
+              <Badge
+                key={`price-${filters.minPrice}-${filters.maxPrice}`}
+                label={`$${filters.minPrice} - $${filters.maxPrice}`}
+                onRemove={() =>
+                  setFilters((prev) => ({
+                    ...prev,
+                    minPrice: 50,
+                    maxPrice: 250,
+                  }))
+                }
+              />
+            )}
           </div>
         </div>
         <div className="space-y-4 border-b border-border pb-4">
@@ -159,9 +172,33 @@ const Filter = ({
           <div className="font-heading text-base font-semibold text-accent">
             Price
           </div>
-          <div>
-            <p>
-              <span>$50.00</span> - <span> $250.00</span>
+          <div className="space-y-2">
+            <div className="flex items-center">
+              <input
+                type="range"
+                min={50}
+                max={250}
+                step={10}
+                value={filters.minPrice}
+                onChange={(e) =>
+                  setFilters({ ...filters, minPrice: Number(e.target.value) })
+                }
+                className="w-full h-2 bg-gray-200 rounded-s-xl appearance-none cursor-pointer"
+              />
+              <input
+                type="range"
+                min={50}
+                max={250}
+                step={10}
+                value={filters.maxPrice}
+                onChange={(e) =>
+                  setFilters({ ...filters, maxPrice: Number(e.target.value) })
+                }
+                className="w-full h-2 bg-gray-200 rounded-e-xl appearance-none cursor-pointer"
+              />
+            </div>
+            <p className="text-sm text-accent font-medium">
+              ${filters.minPrice.toFixed(2)} - ${filters.maxPrice.toFixed(2)}
             </p>
           </div>
         </div>

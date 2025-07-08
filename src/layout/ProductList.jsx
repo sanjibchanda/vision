@@ -8,6 +8,8 @@ const ProductList = ({ className = "" }) => {
     categories: [],
     brands: [],
     sortBy: "Newest",
+    minPrice: 50,
+    maxPrice: 250,
   });
 
   const handleClearAll = () => {
@@ -17,26 +19,6 @@ const ProductList = ({ className = "" }) => {
       brands: [],
       sortBy: "Newest",
     });
-  };
-
-  // Count items per category
-  const getCategoryCounts = () => {
-    const counts = {};
-    productData.forEach((product) => {
-      const category = product.category || "Other";
-      counts[category] = (counts[category] || 0) + 1;
-    });
-    return counts;
-  };
-
-  // Count items per brand
-  const getBrandCounts = () => {
-    const counts = {};
-    productData.forEach((product) => {
-      const brand = product.brand || "Other";
-      counts[brand] = (counts[brand] || 0) + 1;
-    });
-    return counts;
   };
 
   const filteredProducts = useMemo(() => {
@@ -63,6 +45,13 @@ const ProductList = ({ className = "" }) => {
       );
     }
 
+    // Price Range
+    filtered = filtered.filter(
+      (product) =>
+        product.newPrice >= filters.minPrice &&
+        product.newPrice <= filters.maxPrice
+    );
+
     // Sort
     if (filters.sortBy === "BestSeller") {
       filtered = filtered.sort((a, b) => b.reviews - a.reviews);
@@ -72,6 +61,26 @@ const ProductList = ({ className = "" }) => {
 
     return filtered;
   }, [filters]);
+
+  // Count items per category
+  const getCategoryCounts = () => {
+    const counts = {};
+    productData.forEach((product) => {
+      const category = product.category || "Other";
+      counts[category] = (counts[category] || 0) + 1;
+    });
+    return counts;
+  };
+
+  // Count items per brand
+  const getBrandCounts = () => {
+    const counts = {};
+    productData.forEach((product) => {
+      const brand = product.brand || "Other";
+      counts[brand] = (counts[brand] || 0) + 1;
+    });
+    return counts;
+  };
 
   const categoryCounts = getCategoryCounts();
   const brandCounts = getBrandCounts();

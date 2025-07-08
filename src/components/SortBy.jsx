@@ -2,14 +2,25 @@ import React from "react";
 import { CiFilter } from "react-icons/ci";
 import { FaChevronDown } from "react-icons/fa";
 
-const SortBy = ({ filters, setFilters }) => {
+const SortBy = ({
+  filters,
+  setFilters,
+  currentPage,
+  itemsPerPage,
+  totalItems,
+}) => {
   return (
     <>
       <div className="flex gap-3 justify-between items-center font-heading text-sm md:text-base font-semibold text-accent py-4 border-b border-border">
         <div className="md:hidden flex items-center gap-2">
           <CiFilter /> Filter Option
         </div>
-        <div className="hidden md:block">Showing 1 to 10 of 97 results</div>
+        {/* <div className="hidden md:block">Showing 1 to 10 of 97 results</div> */}
+        <div className="hidden md:block">
+          Showing {totalItems === 0 ? 0 : (currentPage - 1) * itemsPerPage + 1}{" "}
+          to {Math.min(currentPage * itemsPerPage, totalItems)} of {totalItems}{" "}
+          results
+        </div>
         <div>
           <div className="flex items-center gap-2">
             <label htmlFor="country" className="block">

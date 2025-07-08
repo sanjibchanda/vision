@@ -1,6 +1,7 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { Container, Filter, Pagination, Product, SortBy } from "../components";
 import { productData } from "../data";
+import { LuSearchX } from "react-icons/lu";
 
 const ProductList = ({ className = "" }) => {
   const [filters, setFilters] = useState({
@@ -17,6 +18,7 @@ const ProductList = ({ className = "" }) => {
       categories: [],
       brands: [],
       sortBy: "Newest",
+      maxPrice: 300,
     });
   };
 
@@ -43,13 +45,6 @@ const ProductList = ({ className = "" }) => {
         filters.brands.includes(product.brand)
       );
     }
-
-    // Price Range
-    // filtered = filtered.filter(
-    //   (product) =>
-    //     product.newPrice >= filters.minPrice &&
-    //     product.newPrice <= filters.maxPrice
-    // );
 
     // Price Range filter using newPrice
     filtered = filtered.filter((product) => {
@@ -91,6 +86,19 @@ const ProductList = ({ className = "" }) => {
   const categoryCounts = getCategoryCounts();
   const brandCounts = getBrandCounts();
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [filters]);
+
+  // Slice for current page
+  const paginatedProducts = useMemo(() => {
+    const start = (currentPage - 1) * itemsPerPage;
+    return filteredProducts.slice(start, start + itemsPerPage);
+  }, [filteredProducts, currentPage]);
+
   return (
     <>
       <section className={className}>
@@ -106,18 +114,43 @@ const ProductList = ({ className = "" }) => {
               />
             </div>
             <div className="w-full md:w-3/4 space-y-4">
-              <SortBy filters={filters} setFilters={setFilters} />
+              <SortBy
+                filters={filters}
+                setFilters={setFilters}
+                currentPage={currentPage}
+                itemsPerPage={itemsPerPage}
+                totalItems={filteredProducts.length}
+              />
               <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
-                {filteredProducts.map((item) => (
+                {paginatedProducts.length === 0 ? (
+                  <div className="col-span-full text-center py-10 text-muted space-y-2">
+                    <LuSearchX className="mx-auto text-4xl text-gray-300" />
+                    <p className="text-lg font-semibold">No results found</p>
+                    <p className="text-sm">
+                      Try adjusting your filters or search keyword.
+                    </p>
+                  </div>
+                ) : (
+                  paginatedProducts.map((item) => (
+                    <Product key={item.id} data={item} />
+                  ))
+                )}
+
+                {/* {paginatedProducts.map((item) => (
                   <Product key={item.id} data={item} />
                 ))}
-                {filteredProducts.length === 0 && (
+                {paginatedProducts.length === 0 && (
                   <p className="text-center col-span-full text-muted">
                     No products match your filter.
                   </p>
-                )}
+                )} */}
               </div>
-              <Pagination />
+              <Pagination
+                currentPage={currentPage}
+                totalItems={filteredProducts.length}
+                itemsPerPage={itemsPerPage}
+                onPageChange={setCurrentPage}
+              />
             </div>
           </div>
         </Container>

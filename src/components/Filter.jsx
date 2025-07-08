@@ -81,15 +81,14 @@ const Filter = ({
                 onRemove={() => handleRemoveFilter("brands", brand)}
               />
             ))}
-            {(filters.minPrice !== 50 || filters.maxPrice !== 250) && (
+            {filters.maxPrice !== 300 && (
               <Badge
-                key={`price-${filters.minPrice}-${filters.maxPrice}`}
-                label={`$${filters.minPrice} - $${filters.maxPrice}`}
+                key={`price-0-${filters.maxPrice}`}
+                label={`$0 - $${filters.maxPrice}`}
                 onRemove={() =>
                   setFilters((prev) => ({
                     ...prev,
-                    minPrice: 50,
-                    maxPrice: 250,
+                    maxPrice: 300,
                   }))
                 }
               />
@@ -173,32 +172,19 @@ const Filter = ({
             Price
           </div>
           <div className="space-y-2">
-            <div className="flex items-center">
-              <input
-                type="range"
-                min={50}
-                max={250}
-                step={10}
-                value={filters.minPrice}
-                onChange={(e) =>
-                  setFilters({ ...filters, minPrice: Number(e.target.value) })
-                }
-                className="w-full h-2 bg-gray-200 rounded-s-xl appearance-none cursor-pointer"
-              />
-              <input
-                type="range"
-                min={50}
-                max={250}
-                step={10}
-                value={filters.maxPrice}
-                onChange={(e) =>
-                  setFilters({ ...filters, maxPrice: Number(e.target.value) })
-                }
-                className="w-full h-2 bg-gray-200 rounded-e-xl appearance-none cursor-pointer"
-              />
-            </div>
+            <input
+              type="range"
+              min={0}
+              max={300}
+              step={10}
+              value={filters.maxPrice}
+              onChange={(e) =>
+                setFilters({ ...filters, maxPrice: Number(e.target.value) })
+              }
+              className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+            />
             <p className="text-sm text-accent font-medium">
-              ${filters.minPrice.toFixed(2)} - ${filters.maxPrice.toFixed(2)}
+              $0 - ${filters.maxPrice.toFixed(2)}
             </p>
           </div>
         </div>

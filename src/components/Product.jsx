@@ -8,17 +8,9 @@ import {
 import { LuShare2, LuShoppingCart } from "react-icons/lu";
 
 const Product = ({ data }) => {
-  const {
-    title,
-    image,
-    rating,
-    reviews,
-    oldPrice,
-    newPrice,
-    discount,
-    stock,
-    label,
-  } = data;
+  const { title, image, rating, reviews, oldPrice, discount, stock, label } =
+    data;
+  const newPrice = oldPrice - (oldPrice * discount) / 100;
 
   const renderStars = () => {
     const fullStars = Math.floor(rating);

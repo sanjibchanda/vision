@@ -8,8 +8,7 @@ const ProductList = ({ className = "" }) => {
     categories: [],
     brands: [],
     sortBy: "Newest",
-    minPrice: 50,
-    maxPrice: 250,
+    maxPrice: 300,
   });
 
   const handleClearAll = () => {
@@ -46,11 +45,18 @@ const ProductList = ({ className = "" }) => {
     }
 
     // Price Range
-    filtered = filtered.filter(
-      (product) =>
-        product.newPrice >= filters.minPrice &&
-        product.newPrice <= filters.maxPrice
-    );
+    // filtered = filtered.filter(
+    //   (product) =>
+    //     product.newPrice >= filters.minPrice &&
+    //     product.newPrice <= filters.maxPrice
+    // );
+
+    // Price Range filter using newPrice
+    filtered = filtered.filter((product) => {
+      const price =
+        product.oldPrice - (product.oldPrice * product.discount) / 100;
+      return price <= filters.maxPrice;
+    });
 
     // Sort
     if (filters.sortBy === "BestSeller") {

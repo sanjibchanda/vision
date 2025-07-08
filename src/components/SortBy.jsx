@@ -8,18 +8,24 @@ const SortBy = ({
   currentPage,
   itemsPerPage,
   totalItems,
+  setShowFilter,
 }) => {
   return (
     <>
-      <div className="flex gap-3 justify-between items-center font-heading text-sm md:text-base font-semibold text-accent py-4 border-b border-border">
-        <div className="md:hidden flex items-center gap-2">
-          <CiFilter /> Filter Option
-        </div>
-        {/* <div className="hidden md:block">Showing 1 to 10 of 97 results</div> */}
-        <div className="hidden md:block">
-          Showing {totalItems === 0 ? 0 : (currentPage - 1) * itemsPerPage + 1}{" "}
-          to {Math.min(currentPage * itemsPerPage, totalItems)} of {totalItems}{" "}
-          results
+      <div className="flex flex-col sm:flex-row gap-3 justify-between md:items-center font-heading text-sm md:text-base font-semibold text-accent py-4 border-b border-border">
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => setShowFilter((prev) => !prev)}
+            className="flex items-center gap-2 lg:hidden"
+          >
+            <CiFilter />
+          </button>
+          <div>
+            Showing{" "}
+            {totalItems === 0 ? 0 : (currentPage - 1) * itemsPerPage + 1} to{" "}
+            {Math.min(currentPage * itemsPerPage, totalItems)} of {totalItems}{" "}
+            results
+          </div>
         </div>
         <div>
           <div className="flex items-center gap-2">

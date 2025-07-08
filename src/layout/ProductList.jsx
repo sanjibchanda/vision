@@ -4,6 +4,8 @@ import { productData } from "../data";
 import { LuSearchX } from "react-icons/lu";
 
 const ProductList = ({ className = "" }) => {
+  const [showFilter, setShowFilter] = useState(false);
+
   const [filters, setFilters] = useState({
     search: "",
     categories: [],
@@ -104,7 +106,13 @@ const ProductList = ({ className = "" }) => {
       <section className={className}>
         <Container className="space-y-6 md:space-y-8 xl:space-y-10">
           <div className="flex gap-6">
-            <div className="hidden md:block md:w-1/4">
+            <div
+              className={`${
+                showFilter
+                  ? "block fixed top-0 left-0 w-3/4 sm:w-2/4 h-screen overflow-y-scroll bg-white p-4 z-50 shadow-sm"
+                  : "hidden"
+              } lg:block lg:relative lg:overflow-hidden lg:h-auto lg:w-1/4 lg:p-0 lg:shadow-none`}
+            >
               <Filter
                 filters={filters}
                 setFilters={setFilters}
@@ -113,15 +121,16 @@ const ProductList = ({ className = "" }) => {
                 brandCounts={brandCounts}
               />
             </div>
-            <div className="w-full md:w-3/4 space-y-4">
+            <div className="w-full lg:w-3/4 space-y-4">
               <SortBy
                 filters={filters}
                 setFilters={setFilters}
                 currentPage={currentPage}
                 itemsPerPage={itemsPerPage}
                 totalItems={filteredProducts.length}
+                setShowFilter={setShowFilter}
               />
-              <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6">
                 {paginatedProducts.length === 0 ? (
                   <div className="col-span-full text-center py-10 text-muted space-y-2">
                     <LuSearchX className="mx-auto text-4xl text-gray-300" />
@@ -154,6 +163,14 @@ const ProductList = ({ className = "" }) => {
             </div>
           </div>
         </Container>
+
+        {/* Overlay for mobile */}
+        {showFilter && (
+          <div
+            className="fixed inset-0 bg-black/50 z-10 lg:hidden"
+            onClick={() => setShowFilter(false)}
+          ></div>
+        )}
       </section>
     </>
   );

@@ -1,8 +1,7 @@
 import React from "react";
-import Navbar from "../components/Navbar";
 import { NavLink } from "react-router";
 import { assets } from "../assets/assets";
-import { Container } from "../components";
+import { Container, Navbar } from "../components";
 
 const Header = () => {
   return (

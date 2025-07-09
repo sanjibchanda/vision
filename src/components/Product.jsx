@@ -6,8 +6,10 @@ import {
   FaRegHeart,
 } from "react-icons/fa6";
 import { LuShare2, LuShoppingCart } from "react-icons/lu";
+import { useCart } from "../context/CartContext";
 
 const Product = ({ data }) => {
+  const { addToCart, addToWishlist } = useCart();
   const { title, image, rating, reviews, oldPrice, discount, stock, label } =
     data;
   const newPrice = oldPrice - (oldPrice * discount) / 100;
@@ -42,7 +44,10 @@ const Product = ({ data }) => {
         <span className="bg-gray-500 text-white p-2 sm:text-xl rounded-full inline-block absolute top-1/4 sm:top-1/3 right-0 z-1">
           <LuShare2 />
         </span>
-        <span className="bg-gray-900 text-white p-2 sm:text-xl rounded-full inline-block absolute top-1/2 right-0 z-1">
+        <span
+          className="bg-gray-900 text-white p-2 sm:text-xl rounded-full inline-block absolute top-1/2 right-0 z-1 cursor-pointer"
+          onClick={() => addToWishlist(data)}
+        >
           <FaRegHeart />
         </span>
         <div
@@ -98,7 +103,10 @@ const Product = ({ data }) => {
             </h5>
           </div>
           {stock > 0 && (
-            <div className="bg-primary text-white p-3 sm:p-4 rounded-lg">
+            <div
+              className="bg-primary text-white p-3 sm:p-4 rounded-lg cursor-pointer"
+              onClick={() => addToCart(data)}
+            >
               <LuShoppingCart className="text-base sm:text-lg" />
             </div>
           )}

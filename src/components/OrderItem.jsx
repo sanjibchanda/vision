@@ -6,12 +6,15 @@ import { LuMinus, LuPlus } from "react-icons/lu";
 const OrderItem = ({ className = "" }) => {
   return (
     <div className="flex gap-4 py-4 border-b border-border">
-      <div className="bg-white p-2 size-20 rounded-sm">
+      <div className="bg-white p-2 size-20 rounded-sm relative">
         <img
           src={assets.product.appleWatch}
           alt="images"
           className="w-full h-full object-contain"
         />
+        <span className="absolute -top-2 -right-2 bg-gray-400 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+          1
+        </span>
       </div>
       <div className="w-full flex gap-4 justify-between">
         <div className="space-y-1 w-full">

@@ -8,6 +8,12 @@ import clockRecord from "./images/clock-record.svg";
 import alarm from "./images/alarm.svg";
 import notification from "./images/notification.svg";
 import visa from "./images/visa.svg";
+import shipping from "./images/shipping.svg";
+import amex from "./images/amex.svg";
+import discover from "./images/discover.svg";
+import mastercard from "./images/mastercard.svg";
+import visaCard from "./images/visaCard.svg";
+import shop from "./images/shop.svg";
 
 import noise from "./images/brand/noise.svg";
 import sphere from "./images/brand/sphere.svg";
@@ -77,6 +83,8 @@ import feedback3 from "./images/feedback3.png";
 import feedback3_2x from "./images/feedback3@2x.png";
 import promoModel1 from "./images/promo-model1.png";
 import promoModel1_2x from "./images/promo-model1@2x.png";
+import shippingBox from "./images/shippingBox.png";
+import shippingBox_2x from "./images/shippingBox@2x.png";
 
 export const assets = {
   secure,
@@ -89,12 +97,19 @@ export const assets = {
   promoWatch,
   promoWatch2,
   visa,
+  shipping,
+  amex,
+  discover,
+  mastercard,
+  visaCard,
+  shop,
 
   womenMeditation,
   womenMeditation_2x,
-
   promoModel1,
   promoModel1_2x,
+  shippingBox,
+  shippingBox_2x,
 
   logo: {
     light: logoLight,

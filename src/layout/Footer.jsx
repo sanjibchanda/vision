@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <>
       <section className="bg-black text-white py-12 md:py-16 xl:py-20">
-        <Container>
+        <Container className="space-y-6">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-6">
             <div className="space-y-4 sm:col-span-2 lg:col-span-1">
               <NavLink to="/" className="block">
@@ -82,6 +82,19 @@ const Footer = () => {
                 straight to your inbox.
               </p>
               <NewsletterButton />
+            </div>
+          </div>
+          <hr className="border-t border-gray-500" />
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-2">
+            <p className="text-muted text-sm order-1 sm:order-0">
+              © 2025 YourBrand. All rights reserved.
+            </p>
+            <div className="flex items-center gap-1">
+              <img src={assets.amex} alt="card" />
+              <img src={assets.discover} alt="card" />
+              <img src={assets.mastercard} alt="card" />
+              <img src={assets.visaCard} alt="card" />
+              <img src={assets.shop} alt="card" />
             </div>
           </div>
         </Container>

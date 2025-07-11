@@ -7,3 +7,4 @@ export { default as ProductDetails } from "./ProductDetails";
 export { default as OrderDetails } from "./OrderDetails";
 export { default as ThankYou } from "./ThankYou";
 export { default as Error } from "./Error";
+export { default as Wishlist } from "./Wishlist";

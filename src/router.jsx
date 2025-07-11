@@ -8,10 +8,10 @@ import {
   Products,
   Checkout,
   Cart,
-  ThankYou,
   ProductDetails,
   Error,
   OrderDetails,
+  Wishlist,
 } from "./pages";
 
 export const router = createBrowserRouter([
@@ -35,7 +35,7 @@ export const router = createBrowserRouter([
       { path: "checkout", Component: Checkout },
       { path: "cart", Component: Cart },
       { path: "order-details", Component: OrderDetails },
-      { path: "thank-you", Component: ThankYou },
+      { path: "wishlist", Component: Wishlist },
       { path: "*", Component: Error },
     ],
   },

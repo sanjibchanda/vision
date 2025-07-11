@@ -3,7 +3,7 @@ import { Support } from "../layout";
 import { Container, OrderItem, Summary } from "../components";
 import { assets } from "../assets/assets";
 
-const OrderDetails = ({ className = "" }) => {
+const OrderDetails = () => {
   return (
     <>
       <section className="my-12 md:my-16 xl:my-20">

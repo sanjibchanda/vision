@@ -3,7 +3,7 @@ import { assets } from "../assets/assets";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { LuMinus, LuPlus } from "react-icons/lu";
 
-const OrderItem = ({ className = "" }) => {
+const OrderItem = ({ className = "", showDelete = false }) => {
   return (
     <div className="flex gap-4 py-4 border-b border-border">
       <div className="bg-white p-2 size-20 rounded-sm relative">
@@ -25,7 +25,7 @@ const OrderItem = ({ className = "" }) => {
           </p>
         </div>
         <div className="flex flex-col justify-between items-end">
-          {/* <RiDeleteBin6Line /> */}
+          {showDelete && <RiDeleteBin6Line className="text-teritory" />}
           <p className="font-semibold font-heading">$150.00</p>
         </div>
       </div>

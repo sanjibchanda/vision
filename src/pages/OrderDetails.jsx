@@ -1,7 +1,7 @@
 import React from "react";
 import { useLoaderData } from "react-router";
 
-const ThankYou = () => {
+const OrderDetails = () => {
   const data = useLoaderData();
   return (
     <>
@@ -13,4 +13,4 @@ const ThankYou = () => {
   );
 };
 
-export default ThankYou;
+export default OrderDetails;

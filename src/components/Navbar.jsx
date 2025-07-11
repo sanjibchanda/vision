@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 import { navItems } from "../data";
 import { LuMenu, LuSearch, LuShoppingCart, LuX, LuUser } from "react-icons/lu";
 import { FaRegHeart } from "react-icons/fa";
 import SearchOverlay from "./SearchOverlay";
 import { useCart } from "../context/CartContext";
+import Button from "./Button";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false); // for future cart drawer
@@ -17,6 +19,10 @@ const Navbar = () => {
       menuOpen || searchOpen || cartOpen ? "hidden" : "auto";
     return () => (document.body.style.overflow = "auto");
   }, [menuOpen, searchOpen, cartOpen]);
+
+  const handleClick = () => {
+    navigate("cart");
+  };
 
   return (
     <nav className="relative">
@@ -41,7 +47,7 @@ const Navbar = () => {
       {/* Background Overlay */}
       {(menuOpen || cartOpen) && (
         <div
-          className="fixed inset-0 bg-black/50 z-10 md:hidden"
+          className="fixed inset-0 bg-black/50 z-10"
           onClick={() => {
             setMenuOpen(false);
             setCartOpen(false);
@@ -130,6 +136,9 @@ const Navbar = () => {
           </button>
           <h2 className="text-lg font-semibold mb-4">Cart</h2>
           <p>Your cart is empty (for now)</p>
+          <Button variant="solid" color="dark" onClick={handleClick}>
+            Go to Cart page
+          </Button>
         </div>
       )}
     </nav>

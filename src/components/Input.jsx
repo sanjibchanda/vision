@@ -36,7 +36,7 @@ const Input = ({
           value={value}
           onChange={onChange}
           placeholder={placeholder}
-          className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+          className={`w-full px-3 py-2 border rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${
             icon ? (iconPosition === "left" ? "pl-10" : "pr-10") : ""
           } ${error ? "border-red-500" : "border-gray-300"}`}
           {...props}

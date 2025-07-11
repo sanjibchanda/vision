@@ -149,12 +149,15 @@ h5 {
   background-repeat: no-repeat;
   background-position: center bottom;
 }
-
+.promo2-bg {
+  background-image: url("./images/promoBg2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
 @media (width >= 48rem) {
   .promo-bg {
     background-image: url("./images/promoBg.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
     background-position: 60% 0;
   }
 }

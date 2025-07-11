@@ -18,7 +18,7 @@ const NewsletterButton = () => {
   };
 
   return (
-    <div className="">
+    <>
       <div className="flex">
         <div className="w-full flex items-center gap-1 px-2 py-3 bg-white text-accent border border-gray-300 rounded-l-sm focus-visible:outline-none">
           <LuMail className="text-muted text-lg" />
@@ -27,7 +27,7 @@ const NewsletterButton = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email"
-            className="w-full "
+            className="w-full focus-visible:outline-0 "
           />
         </div>
         <button
@@ -38,7 +38,7 @@ const NewsletterButton = () => {
         </button>
       </div>
       {error && <p className="text-red-400 text-sm mt-2">{error}</p>}
-    </div>
+    </>
   );
 };
 

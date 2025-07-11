@@ -14,5 +14,6 @@ export { default as BoxContent2 } from "./BoxContent2";
 export { default as BoxSliderContent } from "./BoxSliderContent";
 export { default as Testimonial } from "./Testimonial";
 export { default as Promo } from "./Promo";
+export { default as Promo2 } from "./Promo2";
 export { default as Banner } from "./Banner";
 export { default as ProductList } from "./ProductList";

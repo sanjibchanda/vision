@@ -2,14 +2,17 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import App from "./App";
-import Home from "./pages/Home";
-import Products from "./pages/Products";
-import Checkout from "./pages/Checkout";
-import Cart from "./pages/Cart";
-import ThankYou from "./pages/ThankYou";
-import ProductDetails from "./pages/ProductDetails";
-import Error from "./pages/Error";
-import Shop from "./pages/Shop";
+import {
+  Home,
+  Shop,
+  Products,
+  Checkout,
+  Cart,
+  ThankYou,
+  ProductDetails,
+  Error,
+  OrderDetails,
+} from "./pages";
 
 export const router = createBrowserRouter([
   {
@@ -31,6 +34,7 @@ export const router = createBrowserRouter([
       { path: "products/:id?", Component: ProductDetails },
       { path: "checkout", Component: Checkout },
       { path: "cart", Component: Cart },
+      { path: "order-details", Component: OrderDetails },
       { path: "thank-you", Component: ThankYou },
       { path: "*", Component: Error },
     ],

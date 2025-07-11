@@ -1,9 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router";
 import "./assets/index.css";
-import TopBar from "./layout/TopBar";
-import Header from "./layout/Header";
-import Footer from "./layout/Footer";
+import { TopBar, Header, Footer } from "./layout";
 import { CartProvider } from "./context/CartContext";
 
 const App = () => {

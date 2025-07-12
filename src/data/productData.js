@@ -9,7 +9,6 @@ const productData = [
     reviews: 97,
     oldPrice: 100,
     discount: 10,
-    newPrice: 200,
     stock: 20,
     label: "Bestseller",
     brand: "Apple",

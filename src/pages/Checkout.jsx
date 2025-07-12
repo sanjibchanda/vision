@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useCart } from "../context/CartContext";
 import { Banner, Support } from "../layout";
 import {
   Button,
@@ -16,9 +17,12 @@ import { FaRegMoneyBill1, FaCreditCard } from "react-icons/fa6";
 import { LuCalendar } from "react-icons/lu";
 
 const Checkout = ({ className = "" }) => {
+  const { cartItems, clearCart } = useCart(); // ACCESS CONTEXT HERE
+
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate("/order-details");
+    clearCart(); // 🧹 Clear cart
+    navigate("/order-details"); // 🚀 Navigate to order page
   };
 
   const [selectOption, setSelectOption] = useState();
@@ -243,9 +247,9 @@ const Checkout = ({ className = "" }) => {
                   Order Summary
                 </p>
                 <div>
-                  <OrderItem />
-                  <OrderItem />
-                  <OrderItem />
+                  {cartItems.map((item) => (
+                    <OrderItem key={item.id} item={item} />
+                  ))}
                 </div>
                 <Summary />
                 <Button

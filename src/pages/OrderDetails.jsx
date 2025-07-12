@@ -1,9 +1,11 @@
 import React from "react";
+import { useCart } from "../context/CartContext";
 import { Support } from "../layout";
 import { Container, OrderItem, Summary } from "../components";
 import { assets } from "../assets/assets";
 
 const OrderDetails = () => {
+  const { cartItems } = useCart(); // ACCESS CONTEXT HERE
   return (
     <>
       <section className="my-12 md:my-16 xl:my-20">
@@ -38,9 +40,9 @@ const OrderDetails = () => {
               Order Summary
             </p>
             <div>
-              <OrderItem />
-              <OrderItem />
-              <OrderItem />
+              {cartItems.map((item) => (
+                <OrderItem key={item.id} item={item} />
+              ))}
             </div>
           </div>
 

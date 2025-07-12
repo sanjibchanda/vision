@@ -1,16 +1,18 @@
 import React from "react";
+import { useCart } from "../context/CartContext";
 
 const Summary = ({ className = "" }) => {
+  const { subtotal, discount, total } = useCart();
   return (
     <>
       <ul className={`space-y-3 ${className}`}>
         <li className="flex items-center justify-between font-medium">
           <span>Subtotal</span>
-          <span>$350.00</span>
+          <span>${subtotal.toFixed(2)}</span>
         </li>
         <li className="flex items-center justify-between">
           <span>Discount</span>
-          <span>$50.00</span>
+          <span>${discount.toFixed(2)}</span>
         </li>
         <li className="flex items-center justify-between">
           <span>Shipping & Handling</span>
@@ -21,7 +23,7 @@ const Summary = ({ className = "" }) => {
         </li>
         <li className="flex items-center justify-between font-medium text-lg">
           <span>Total</span>
-          <span>$315.00</span>
+          <span>${total.toFixed(2)}</span>
         </li>
       </ul>
     </>

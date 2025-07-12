@@ -1,4 +1,5 @@
 import React from "react";
+import { useCart } from "../context/CartContext";
 import { Link, useNavigate } from "react-router";
 import { Banner, Promo2, Support } from "../layout";
 import {
@@ -18,6 +19,8 @@ import { MdOutlineDiscount } from "react-icons/md";
 import { productData } from "../data";
 
 const Cart = () => {
+  const { cartItems } = useCart(); // ACCESS CONTEXT HERE
+
   const navigate = useNavigate();
   const handleClick = () => {
     navigate("/checkout");
@@ -71,9 +74,13 @@ const Cart = () => {
                 Shopping Cart (2 items)
               </p>
               <div>
-                <CartItem />
-                <CartItem />
-                <CartItem />
+                {cartItems.length === 0 ? (
+                  <p>Your cart is empty</p>
+                ) : (
+                  cartItems.map((item) => (
+                    <CartItem key={item.id} item={item} />
+                  ))
+                )}
               </div>
             </div>
             <div className="w-full md:w-1/3 space-y-4">

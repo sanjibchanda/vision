@@ -1,8 +1,11 @@
 import React from "react";
 import { Container, OrderItem } from "../components";
 import { Banner } from "../layout";
+import { useCart } from "../context/CartContext";
 
 const Wishlist = () => {
+  const { wishlistItems, removeFromCart } = useCart();
+
   return (
     <>
       <Banner
@@ -17,13 +20,16 @@ const Wishlist = () => {
               Wishlist
             </p>
             <div>
-              <OrderItem showDelete />
-              <OrderItem showDelete />
-              <OrderItem showDelete />
+              {wishlistItems.length > 0 ? (
+                wishlistItems.map((item) => (
+                  <OrderItem key={item.id} item={item} showDelete />
+                ))
+              ) : (
+                <p className="text-muted">
+                  There are no products in your wishlist!
+                </p>
+              )}
             </div>
-          </div>
-          <div>
-            <p>There are no products in your wishlist!</p>
           </div>
         </Container>
       </section>

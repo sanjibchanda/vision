@@ -56,7 +56,13 @@ const OrderDetails = () => {
               </p>
               <div className="flex items-center justify-center gap-2">
                 <img src={assets.shipping} alt="shipping" />
-                <span>Free Shipping</span>
+                <span>{orderData.shippingLabel || "Standard Shipping"}</span>
+                <span className="font-medium">
+                  Cost:{" "}
+                  {orderData.shippingCost === 0
+                    ? "Free"
+                    : `$${orderData.shippingCost?.toFixed(2)}`}
+                </span>
               </div>
             </div>
           </div>

@@ -94,6 +94,14 @@ const Checkout = ({ className = "" }) => {
       return;
     }
 
+    const shippingCost = shipping === "ExpressShipping" ? 9 : 0;
+    const shippingLabel =
+      shipping === "ExpressShipping"
+        ? "Express Shipping (1-3 Days)"
+        : "Free Shipping (7-20 Days)";
+
+    const updatedTotal = total + shippingCost;
+
     // Save billing and order details in localStorage
     localStorage.setItem(
       "latestOrder",
@@ -102,8 +110,10 @@ const Checkout = ({ className = "" }) => {
         items: cartItems,
         subtotal,
         discount,
-        total,
-        payment,
+        total: updatedTotal,
+        shipping,
+        shippingCost,
+        shippingLabel,
       })
     );
 

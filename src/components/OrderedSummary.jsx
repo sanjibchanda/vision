@@ -7,7 +7,9 @@ const OrderedSummary = ({ className = "" }) => {
 
   const subtotal = orderData.subtotal || 0;
   const discount = orderData.discount || 0;
-  const total = orderData.total || 0;
+  const shippingCost = orderData.shippingCost ?? 0;
+  const total = subtotal - discount + shippingCost;
+
   return (
     <>
       <ul className={`space-y-3 ${className}`}>
@@ -21,7 +23,9 @@ const OrderedSummary = ({ className = "" }) => {
         </li>
         <li className="flex items-center justify-between">
           <span>Shipping & Handling</span>
-          <span className="text-success">FREE</span>
+          <span className={shippingCost === 0 ? "text-success" : ""}>
+            {shippingCost === 0 ? "FREE" : `$${shippingCost.toFixed(2)}`}
+          </span>
         </li>
         <li>
           <hr className="border-b border-border " />

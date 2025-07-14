@@ -29,26 +29,24 @@ const Checkout = ({ className = "" }) => {
   } = useCart(); // ACCESS CONTEXT HERE
 
   const navigate = useNavigate();
-  const handleClick = () => {
-    localStorage.setItem(
-      "latestOrder",
-      JSON.stringify({
-        items: cartItems,
-        subtotal,
-        discount,
-        total,
-      })
-    ); // store the cartItems in localStorage
-    clearCart(); // 🧹 Clear cart
-    navigate("/order-details"); // 🚀 Navigate to order page
-  };
-
   const [selectOption, setSelectOption] = useState();
   const [shipping, setShipping] = useState("FreeShipping");
   const [payment, setPayment] = useState("Card");
 
   const [inputCode, setInputCode] = useState(""); // define promo input state
   const [error, setError] = useState(""); // optional error message
+
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    city: "",
+    state: "",
+    zipcode: "",
+    address: "",
+    termsAccepted: false,
+  });
 
   const handleApplyCode = () => {
     const result = applyPromoCode(inputCode);
@@ -57,6 +55,60 @@ const Checkout = ({ className = "" }) => {
     } else {
       setError("");
     }
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
+
+  const handleClick = () => {
+    // Basic validation
+    const {
+      firstName,
+      lastName,
+      email,
+      phone,
+      city,
+      state,
+      zipcode,
+      address,
+      termsAccepted,
+    } = formData;
+
+    if (
+      !firstName ||
+      !lastName ||
+      !email ||
+      !phone ||
+      !city ||
+      !state ||
+      !zipcode ||
+      !address ||
+      !termsAccepted
+    ) {
+      alert("Please complete all fields and accept the Terms & Conditions.");
+      return;
+    }
+
+    // Save billing and order details in localStorage
+    localStorage.setItem(
+      "latestOrder",
+      JSON.stringify({
+        billing: formData,
+        items: cartItems,
+        subtotal,
+        discount,
+        total,
+        payment,
+      })
+    );
+
+    clearCart(); // 🧹 Clear cart
+    navigate("/order-details"); // 🚀 Navigate to order page
   };
 
   return (
@@ -86,12 +138,16 @@ const Checkout = ({ className = "" }) => {
                       name="firstName"
                       type="text"
                       placeholder="First name"
+                      value={formData.firstName}
+                      onChange={handleInputChange}
                     />
                     <Input
                       label="Last Name"
-                      name="LastName"
+                      name="lastName"
                       type="text"
                       placeholder="Last name"
+                      value={formData.lastName}
+                      onChange={handleInputChange}
                     />
                   </div>
                   <div className="grid grid-cols-2 gap-4">
@@ -100,30 +156,34 @@ const Checkout = ({ className = "" }) => {
                       name="email"
                       type="email"
                       placeholder="Email"
+                      value={formData.email}
+                      onChange={handleInputChange}
                     />
                     <Input
                       label="Phone Number"
-                      name="Phone"
+                      name="phone"
                       type="text"
                       placeholder="Phone number"
+                      value={formData.phone}
+                      onChange={handleInputChange}
                     />
                   </div>
                   <div className="grid grid-cols-3 gap-4">
                     <Select
                       label="City"
                       name="city"
-                      value={selectOption}
-                      onChange={(e) => setSelectOption(e.target.value)}
+                      value={formData.city}
+                      onChange={handleInputChange}
                       options={[
-                        { value: "kollata", label: "kollata" },
+                        { value: "Kolkata", label: "Kolkata" },
                         { value: "Durgapur", label: "Durgapur" },
                       ]}
                     />
                     <Select
                       label="State"
                       name="state"
-                      value={selectOption}
-                      onChange={(e) => setSelectOption(e.target.value)}
+                      value={formData.state}
+                      onChange={handleInputChange}
                       options={[
                         { value: "WB", label: "WB" },
                         { value: "Delhi", label: "Delhi" },
@@ -134,6 +194,8 @@ const Checkout = ({ className = "" }) => {
                       name="zipcode"
                       type="text"
                       placeholder="Zip code"
+                      value={formData.zipcode}
+                      onChange={handleInputChange}
                     />
                   </div>
                   <div>
@@ -142,12 +204,16 @@ const Checkout = ({ className = "" }) => {
                       name="address"
                       type="text"
                       placeholder="Address"
+                      value={formData.address}
+                      onChange={handleInputChange}
                     />
                   </div>
                   <div>
                     <Checkbox
                       label="I have read and agree to the Term and Conditions."
-                      name="terms"
+                      name="termsAccepted"
+                      checked={formData.termsAccepted}
+                      onChange={handleInputChange}
                     />
                   </div>
                 </div>

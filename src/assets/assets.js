@@ -14,6 +14,9 @@ import discover from "./images/discover.svg";
 import mastercard from "./images/mastercard.svg";
 import visaCard from "./images/visaCard.svg";
 import shop from "./images/shop.svg";
+import genuin from "./images/genuin.svg";
+import returns from "./images/returns.svg";
+import secureLock from "./images/secure-lock.svg";
 
 import noise from "./images/brand/noise.svg";
 import sphere from "./images/brand/sphere.svg";
@@ -142,6 +145,9 @@ export const assets = {
   mastercard,
   visaCard,
   shop,
+  genuin,
+  returns,
+  secureLock,
 
   womenMeditation,
   womenMeditation_2x,

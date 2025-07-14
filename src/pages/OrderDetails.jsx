@@ -5,12 +5,14 @@ import { Container, OrderedSummary, OrderItem } from "../components";
 import { assets } from "../assets/assets";
 
 const OrderDetails = () => {
-  const { cartItems } = useCart(); // ACCESS CONTEXT HERE
+  // const { cartItems } = useCart();
   const [orderData, setOrderData] = useState({
+    billing: {},
     items: [],
     subtotal: 0,
     discount: 0,
     total: 0,
+    payment: "",
   });
   useEffect(() => {
     const savedOrder = localStorage.getItem("latestOrder");
@@ -83,13 +85,22 @@ const OrderDetails = () => {
                   Shipping Address:
                 </p>
                 <ul className="space-y-1 text-sm">
-                  <li className="font-semibold">John Doe</li>
-                  <li>1234 Elm Street Apt 5B</li>
-                  <li>Los Angeles, CA – 90001</li>
-                  <li className="font-semibold">United States</li>
+                  <li className="font-semibold">
+                    {orderData.billing.firstName} {orderData.billing.lastName}
+                  </li>
+                  <li>{orderData.billing.address}</li>
                   <li>
-                    <span className="font-semibold">Phone:</span> +1 (555)
-                    123-4567
+                    {orderData.billing.city}, {orderData.billing.state} –{" "}
+                    {orderData.billing.zipcode}
+                  </li>
+                  <li className="font-semibold">India</li>
+                  <li>
+                    <span className="font-semibold">Phone:</span>{" "}
+                    {orderData.billing.phone}
+                  </li>
+                  <li>
+                    <span className="font-semibold">Email:</span>{" "}
+                    {orderData.billing.email}
                   </li>
                 </ul>
               </div>
@@ -99,10 +110,14 @@ const OrderDetails = () => {
                 <p className="text-lg font-heading font-semibold">
                   Payment Method:
                 </p>
-                <div className="flex items-center gap-2 text-sm">
-                  <img src={assets.visaCard} alt="shipping" />
-                  <span>Visa Card ending in **** 1026</span>
-                </div>
+                {orderData.payment === "Card" ? (
+                  <div className="flex items-center gap-2 text-sm">
+                    <img src={assets.visaCard} alt="Visa" />
+                    <span>Credit Card (**** **** **** 1026)</span>
+                  </div>
+                ) : (
+                  <div className="text-sm">Cash on Delivery</div>
+                )}
               </div>
 
               {/* Summary */}

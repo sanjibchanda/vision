@@ -1,5 +1,6 @@
 import React from "react";
 import { Accordions, Container } from "../components";
+import { faqData } from "../data";
 
 const Faq = ({ className = "" }) => {
   return (
@@ -12,7 +13,7 @@ const Faq = ({ className = "" }) => {
             </h3>
           </div>
           <div className="md:w-1/2">
-            <Accordions />
+            <Accordions data={faqData} />
           </div>
         </div>
       </Container>

@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { Link, useParams, useNavigate } from "react-router";
 import { useCart } from "../context/CartContext";
 import { Banner, Faq, Review, Support } from "../layout";
-import { Button, Container, Product, Radio } from "../components";
+import { Accordions, Button, Container, Product, Radio } from "../components";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { IoIosArrowForward } from "react-icons/io";
-import { productData } from "../data";
+import { productData, productDescData } from "../data";
 import { assets } from "../assets/assets";
 import { MdErrorOutline } from "react-icons/md";
 import { LuMinus, LuPlus } from "react-icons/lu";
@@ -90,12 +90,12 @@ const ProductDetails = ({ data }) => {
       <section className="mb-12 md:mb-16 xl:mb-20">
         <Container className="space-y-6 md:space-y-8 xl:space-y-10">
           <div className="flex flex-col sm:flex-row gap-12">
-            <div className="w-1/2">
+            <div className="sm:w-1/2">
               <div className="max-w-3/4 mx-auto">
                 <img src={currentImage} alt={product.title} />
               </div>
             </div>
-            <div className="w-1/2 space-y-4">
+            <div className="sm:w-1/2 space-y-4">
               <p className="text-lg uppercase font-medium">
                 {product.category}
               </p>
@@ -207,6 +207,53 @@ const ProductDetails = ({ data }) => {
                 Shipping is free for the week of February 14th
                 <MdErrorOutline />
               </p>
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 items-center bg-surface2 p-4 text-center">
+                <div className="space-y-1">
+                  <img
+                    src={assets.shippingVan}
+                    alt="icon"
+                    className="mx-auto w-10"
+                  />
+                  <span>
+                    Free
+                    <br /> Shipping
+                  </span>
+                </div>
+                <div className="space-y-2">
+                  <img
+                    src={assets.genuin}
+                    alt="icon"
+                    className="mx-auto w-10"
+                  />
+                  <span>
+                    100%
+                    <br /> Genuin
+                  </span>
+                </div>
+                <div className="space-y-2">
+                  <img
+                    src={assets.returns}
+                    alt="icon"
+                    className="mx-auto w-10"
+                  />
+                  <span>
+                    Hassle
+                    <br /> free return
+                  </span>
+                </div>
+                <div className="space-y-2">
+                  <img
+                    src={assets.secureLock}
+                    alt="icon"
+                    className="mx-auto w-10"
+                  />
+                  <span>
+                    Secure <br />
+                    Transactions
+                  </span>
+                </div>
+              </div>
+              <Accordions data={productDescData[0].iphone16Pro} />
             </div>
           </div>
         </Container>

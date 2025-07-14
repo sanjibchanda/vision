@@ -9,3 +9,4 @@ export { default as supportData } from "./supportData";
 export { default as feedback } from "./feedback";
 export { default as faqData } from "./faqData";
 export { default as reviewData } from "./reviewData";
+export { default as productDescData } from "./productDescData";

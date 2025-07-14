@@ -1,6 +1,6 @@
 import React from "react";
 
-const Radio = ({ label, name, value, checked, onChange, error }) => {
+const Radio = ({ label, name, value, checked, onChange, error, className }) => {
   return (
     <div className="flex items-center gap-2">
       <input
@@ -10,7 +10,7 @@ const Radio = ({ label, name, value, checked, onChange, error }) => {
         value={value}
         checked={checked}
         onChange={onChange}
-        className={`h-4 w-4 text-blue-600 focus:ring-blue-500 ${
+        className={`h-4 w-4 text-blue-600 focus:ring-blue-500 ${className} ${
           error ? "border-red-500" : "border-gray-300"
         }`}
       />

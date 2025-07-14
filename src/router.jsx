@@ -4,7 +4,6 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 import App from "./App";
 import {
   Home,
-  Shop,
   Products,
   Checkout,
   Cart,
@@ -13,6 +12,7 @@ import {
   OrderDetails,
   Wishlist,
 } from "./pages";
+import Todos from "./pages/Todos";
 
 export const router = createBrowserRouter([
   {
@@ -20,10 +20,16 @@ export const router = createBrowserRouter([
     Component: App, //as a layout
     children: [
       { index: true, Component: Home },
-      { path: "shop", Component: Shop },
+      { path: "products", Component: Products },
+      { path: "products/:id?", Component: ProductDetails },
+      { path: "checkout", Component: Checkout },
+      { path: "cart", Component: Cart },
+      { path: "order-details", Component: OrderDetails },
+      { path: "wishlist", Component: Wishlist },
+      { path: "*", Component: Error },
       {
-        path: "products",
-        Component: Products,
+        path: "todos",
+        Component: Todos,
         loader: async () => {
           const response = await (
             await fetch("https://jsonplaceholder.typicode.com/todos")
@@ -31,12 +37,6 @@ export const router = createBrowserRouter([
           return response;
         },
       },
-      { path: "products/:id?", Component: ProductDetails },
-      { path: "checkout", Component: Checkout },
-      { path: "cart", Component: Cart },
-      { path: "order-details", Component: OrderDetails },
-      { path: "wishlist", Component: Wishlist },
-      { path: "*", Component: Error },
     ],
   },
 ]);

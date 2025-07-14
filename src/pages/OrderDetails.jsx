@@ -1,11 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useCart } from "../context/CartContext";
 import { Support } from "../layout";
-import { Container, OrderItem, Summary } from "../components";
+import { Container, OrderedSummary, OrderItem } from "../components";
 import { assets } from "../assets/assets";
 
 const OrderDetails = () => {
   const { cartItems } = useCart(); // ACCESS CONTEXT HERE
+  const [orderData, setOrderData] = useState({
+    items: [],
+    subtotal: 0,
+    discount: 0,
+    total: 0,
+  });
+  useEffect(() => {
+    const savedOrder = localStorage.getItem("latestOrder");
+    if (savedOrder) {
+      setOrderData(JSON.parse(savedOrder));
+    }
+  }, []);
+
+  // const [orderItems, setOrderItems] = useState(cartItems);
+  // useEffect(() => {
+  //   if (cartItems.length === 0) {
+  //     const saved = localStorage.getItem("latestOrder");
+  //     if (saved) setOrderItems(JSON.parse(saved));
+  //   }
+  //   return () => localStorage.removeItem("latestOrder");
+  // }, [cartItems]);
+
+  // const savedOrder = localStorage.getItem("latestOrder");
+  // const orderItems =
+  //   cartItems.length > 0 ? cartItems : JSON.parse(savedOrder || "[]");
   return (
     <>
       <section className="my-12 md:my-16 xl:my-20">
@@ -40,7 +65,7 @@ const OrderDetails = () => {
               Order Summary
             </p>
             <div>
-              {cartItems.map((item) => (
+              {orderData.items?.map((item) => (
                 <OrderItem key={item.id} item={item} />
               ))}
             </div>
@@ -85,7 +110,7 @@ const OrderDetails = () => {
                 <p className="text-lg font-heading font-semibold">
                   Order Summary:
                 </p>
-                <Summary />
+                <OrderedSummary orderData={orderData} />
               </div>
             </div>
           </div>

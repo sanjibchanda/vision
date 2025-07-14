@@ -22,15 +22,54 @@ import primus from "./images/brand/primus.svg";
 import drifly from "./images/brand/drifly.svg";
 import connex from "./images/brand/connex.svg";
 
-import appleWatch from "./images/product/apple-watch.png";
-import appleWatch2 from "./images/product/apple-watch-2.png";
+import AppleWatchSeries10 from "./images/product/Apple-Watch-Series-10.png";
+import appleWatchUltra2 from "./images/product/apple-watch-ultra2.png";
 import appleWatch3 from "./images/product/apple-watch-3.png";
 import Beats from "./images/product/Beats.png";
 import GalaxyBuds3Pro from "./images/product/Galaxy-Buds3-Pro.png";
-import homePod from "./images/product/homePod.png";
+import homePod from "./images/product/HomePod.jpg";
 import iphone16 from "./images/product/iphone-16.png";
-import iphone16Front from "./images/product/iphone-16-front.png";
 import powerBank from "./images/product/powerBank.png";
+import airpodsMax from "./images/product/airpods-max.png";
+import MacBookPro from "./images/product/MacBookPro.png";
+import airpod4 from "./images/product/airpod4.jpg";
+import AppleWatchSE from "./images/product/Apple-Watch-SE.jpg";
+import iPhone16PlusSiliconeCase from "./images/product/iPhone16PlusSiliconeCase.jpg";
+
+import airpodsMaxBlue from "./images/product/airpod/airpods-max-blue.jpg";
+import airpodsMaxOrange from "./images/product/airpod/airpods-max-orange.jpg";
+import airpodsMaxStarlight from "./images/product/airpod/airpods-max-starlight.jpg";
+import airpodsMaxMidnight from "./images/product/airpod/airpods-max-midnight.jpg";
+import airpodsMaxPurple from "./images/product/airpod/airpods-max-purple.jpg";
+
+import s10JetBlack from "./images/product/s10/s10-jet-black.jpg";
+import s10RoseGold from "./images/product/s10/s10-rosegold.jpg";
+import s10Silver from "./images/product/s10/s10-silver.jpg";
+
+import iphone16ProBlack from "./images/product/iphone/iphone-16-pro-black.jpg";
+import iphone16ProWhite from "./images/product/iphone/iphone-16-pro-white.jpg";
+import iphone16ProNatural from "./images/product/iphone/iphone-16-pro-natural.jpg";
+import iphone16ProDesert from "./images/product/iphone/iphone-16-pro-desert.jpg";
+
+import mbp14Silver from "./images/product/MacBookPro/mbp14-silver.jpg";
+import mbp14SpaceBlack from "./images/product/MacBookPro/mbp14-spaceblack.jpg";
+
+import ultraNatural from "./images/product/ultra/ultra-natural.jpg";
+import ultraBlack from "./images/product/ultra/ultra-black.jpg";
+
+import seSilver from "./images/product/se/se-silver.jpg";
+import seMidnight from "./images/product/se/se-midnight.jpg";
+import seStarlight from "./images/product/se/se-starlight.jpg";
+
+import homepodWhite from "./images/product/homepod/homepodWhite.png";
+import homepodMidnight from "./images/product/homepod/homepod-midnight.png";
+
+import SiliconeCaseAquamarine from "./images/product/siliconeCase/SiliconeCase-Aquamarine.jpg";
+import SiliconeCasePeony from "./images/product/siliconeCase/SiliconeCase-Peony.jpg";
+import SiliconeCasePeriwinkle from "./images/product/siliconeCase/SiliconeCase-Periwinkle.jpg";
+import SiliconeCaseStarFruit from "./images/product/siliconeCase/SiliconeCase-StarFruit.jpg";
+import SiliconeCaseTangerine from "./images/product/siliconeCase/SiliconeCase-Tangerine.jpg";
+import SiliconeCaseUltramarine from "./images/product/siliconeCase/SiliconeCase-Ultramarine.jpg";
 
 import arrival1 from "./images/arrival1.jpg";
 import arrival2 from "./images/arrival2.jpg";
@@ -162,15 +201,46 @@ export const assets = {
     connex,
   },
   product: {
-    appleWatch,
-    appleWatch2,
+    AppleWatchSeries10,
+    appleWatchUltra2,
     appleWatch3,
     Beats,
     GalaxyBuds3Pro,
     homePod,
     iphone16,
-    iphone16Front,
     powerBank,
+    airpodsMax,
+    airpodsMaxBlue,
+    airpodsMaxOrange,
+    airpodsMaxStarlight,
+    airpodsMaxMidnight,
+    airpodsMaxPurple,
+    s10JetBlack,
+    s10RoseGold,
+    s10Silver,
+    iphone16ProBlack,
+    iphone16ProWhite,
+    iphone16ProNatural,
+    iphone16ProDesert,
+    MacBookPro,
+    mbp14Silver,
+    mbp14SpaceBlack,
+    ultraNatural,
+    ultraBlack,
+    airpod4,
+    AppleWatchSE,
+    seSilver,
+    seMidnight,
+    seStarlight,
+    homepodMidnight,
+    homepodWhite,
+    iPhone16PlusSiliconeCase,
+    SiliconeCaseAquamarine,
+    SiliconeCasePeony,
+    SiliconeCasePeriwinkle,
+    SiliconeCaseStarFruit,
+    SiliconeCaseTangerine,
+    SiliconeCaseUltramarine,
   },
   arrival: {
     arrival1,

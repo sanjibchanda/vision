@@ -17,6 +17,7 @@ const Button = ({
       secondary: "bg-gray-800 text-white hover:bg-gray-700",
       light: "bg-white text-accent hover:bg-black hover:text-white",
       dark: "bg-black text-white hover:bg-black/70 hover:text-white",
+      disabled: "bg-gray-100 text-gray-300",
     },
     outline: {
       primary: "border border-primary text-primary hover:bg-primary/10",

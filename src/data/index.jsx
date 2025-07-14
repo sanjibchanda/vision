@@ -7,3 +7,5 @@ export { default as newsData } from "./newsData";
 export { default as productData } from "./productData";
 export { default as supportData } from "./supportData";
 export { default as feedback } from "./feedback";
+export { default as faqData } from "./faqData";
+export { default as reviewData } from "./reviewData";

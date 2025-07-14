@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useCart } from "../context/CartContext";
 import { Link, useNavigate } from "react-router";
 import { Banner, Promo2, Support } from "../layout";
@@ -89,22 +89,6 @@ const Cart = () => {
                   Order Summary
                 </p>
                 <Summary />
-                <div className="space-y-2">
-                  <div className="flex">
-                    <div className="w-full flex items-center gap-1 px-2 py-3 bg-white text-accent border border-gray-300 rounded-l-sm focus-visible:outline-none">
-                      <MdOutlineDiscount className="text-muted" />
-                      <input
-                        type="text"
-                        placeholder="Add promo code"
-                        className="w-full focus-visible:outline-0"
-                      />
-                    </div>
-                    <button className="bg-black text-white px-4 py-2 rounded-r-sm hover:bg-black/70 transition">
-                      Save
-                    </button>
-                  </div>
-                  <p className="text-red-400 text-sm">Invalid Promo code</p>
-                </div>
                 <Button
                   variant="solid"
                   color="dark"

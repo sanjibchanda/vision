@@ -89,7 +89,7 @@ const ProductList = ({ className = "" }) => {
   const brandCounts = getBrandCounts();
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 6;
+  const itemsPerPage = 9;
 
   useEffect(() => {
     setCurrentPage(1);

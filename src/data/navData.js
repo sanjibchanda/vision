@@ -1,8 +1,8 @@
 const navItems = [
-  { name: "Shop", path: "shop" },
-  { name: "Featured Products", path: "products" },
-  { name: "Deals & Offers", path: "offers" },
-  { name: "Accessories", path: "accessories" },
+  { name: "All Products", path: "products" },
+  { name: "todos", path: "todos" },
+  { name: "Deals & Offers", path: "deals" },
+  { name: "Order details", path: "order-details" },
 ];
 
 export default navItems;

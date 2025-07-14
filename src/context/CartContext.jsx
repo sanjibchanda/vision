@@ -14,6 +14,8 @@ export const CartProvider = ({ children }) => {
     return storedWishlist ? JSON.parse(storedWishlist) : [];
   });
 
+  const isInWishlist = (id) => wishlistItems.some((item) => item.id === id);
+
   // 🔄 Sync cartItems with localStorage
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
@@ -31,11 +33,14 @@ export const CartProvider = ({ children }) => {
       if (exists) {
         return prev.map((item) =>
           item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
+            ? {
+                ...item,
+                quantity: (item.quantity ?? 1) + (product.quantity ?? 1),
+              } // Use passed quantity
             : item
         );
       }
-      return [...prev, { ...product, quantity: 1 }];
+      return [...prev, { ...product, quantity: product.quantity ?? 1 }];
     });
   };
 
@@ -44,6 +49,17 @@ export const CartProvider = ({ children }) => {
     setWishlistItems((prev) => {
       const exists = prev.find((item) => item.id === product.id);
       if (exists) return prev;
+      return [...prev, product];
+    });
+  };
+
+  // toggleWishlist
+  const toggleWishlist = (product) => {
+    setWishlistItems((prev) => {
+      const exists = prev.find((item) => item.id === product.id);
+      if (exists) {
+        return prev.filter((item) => item.id !== product.id);
+      }
       return [...prev, product];
     });
   };
@@ -84,7 +100,29 @@ export const CartProvider = ({ children }) => {
     0
   );
 
-  const total = subtotal;
+  // const total = subtotal;
+
+  // Promo Logic
+  const [promoCode, setPromoCode] = useState("");
+  const [promoDiscount, setPromoDiscount] = useState(0);
+
+  const applyPromoCode = (code) => {
+    const promo = code.trim().toUpperCase();
+    if (promo === "PROMO20") {
+      setPromoCode(promo);
+      setPromoDiscount(0.2); // 20%
+      return true;
+    } else {
+      setPromoCode("");
+      setPromoDiscount(0);
+      return false;
+    }
+  };
+
+  // 💰 Update total to reflect promo:
+  const subtotalAfterDiscount = subtotal - discount;
+  const promoAmount = subtotalAfterDiscount * promoDiscount;
+  const total = subtotalAfterDiscount - promoAmount;
 
   return (
     <CartContext.Provider
@@ -100,6 +138,11 @@ export const CartProvider = ({ children }) => {
         discount,
         total,
         clearCart,
+        isInWishlist,
+        toggleWishlist,
+        promoCode,
+        applyPromoCode,
+        promoAmount,
       }}
     >
       {children}

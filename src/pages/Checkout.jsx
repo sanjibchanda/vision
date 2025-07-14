@@ -15,12 +15,30 @@ import { useNavigate } from "react-router";
 import { RiLock2Line } from "react-icons/ri";
 import { FaRegMoneyBill1, FaCreditCard } from "react-icons/fa6";
 import { LuCalendar } from "react-icons/lu";
+import { MdOutlineDiscount } from "react-icons/md";
 
 const Checkout = ({ className = "" }) => {
-  const { cartItems, clearCart } = useCart(); // ACCESS CONTEXT HERE
+  const {
+    cartItems,
+    clearCart,
+    subtotal,
+    discount,
+    total,
+    applyPromoCode,
+    promoCode,
+  } = useCart(); // ACCESS CONTEXT HERE
 
   const navigate = useNavigate();
   const handleClick = () => {
+    localStorage.setItem(
+      "latestOrder",
+      JSON.stringify({
+        items: cartItems,
+        subtotal,
+        discount,
+        total,
+      })
+    ); // store the cartItems in localStorage
     clearCart(); // 🧹 Clear cart
     navigate("/order-details"); // 🚀 Navigate to order page
   };
@@ -28,6 +46,18 @@ const Checkout = ({ className = "" }) => {
   const [selectOption, setSelectOption] = useState();
   const [shipping, setShipping] = useState("FreeShipping");
   const [payment, setPayment] = useState("Card");
+
+  const [inputCode, setInputCode] = useState(""); // define promo input state
+  const [error, setError] = useState(""); // optional error message
+
+  const handleApplyCode = () => {
+    const result = applyPromoCode(inputCode);
+    if (!result) {
+      setError("Invalid Promo Code");
+    } else {
+      setError("");
+    }
+  };
 
   return (
     <>
@@ -252,6 +282,27 @@ const Checkout = ({ className = "" }) => {
                   ))}
                 </div>
                 <Summary />
+                <div className="space-y-2">
+                  <div className="flex">
+                    <div className="w-full flex items-center gap-1 px-2 py-3 bg-white text-accent border border-gray-300 rounded-l-sm focus-visible:outline-none">
+                      <MdOutlineDiscount className="text-muted" />
+                      <input
+                        type="text"
+                        placeholder="Promo code"
+                        value={inputCode}
+                        onChange={(e) => setInputCode(e.target.value)}
+                        className="w-full focus-visible:outline-0"
+                      />
+                    </div>
+                    <button
+                      className="bg-black text-white px-4 py-2 rounded-r-sm hover:bg-black/70 transition"
+                      onClick={handleApplyCode}
+                    >
+                      Apply
+                    </button>
+                  </div>
+                  {error && <p className="text-red-400 text-sm">{error}</p>}
+                </div>
                 <Button
                   variant="solid"
                   color="dark"

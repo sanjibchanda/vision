@@ -3,15 +3,28 @@ import {
   FaStar,
   FaRegMessage,
   FaStarHalfStroke,
+  FaHeart,
   FaRegHeart,
 } from "react-icons/fa6";
 import { LuShare2, LuShoppingCart } from "react-icons/lu";
 import { useCart } from "../context/CartContext";
+import { Link } from "react-router";
 
 const Product = ({ data }) => {
-  const { addToCart, addToWishlist } = useCart();
-  const { title, image, rating, reviews, oldPrice, discount, stock, label } =
-    data;
+  const { addToCart, addToWishlist, isInWishlist, toggleWishlist } = useCart();
+  const {
+    id,
+    title,
+    image,
+    rating,
+    reviews,
+    oldPrice,
+    discount,
+    stock,
+    label,
+    brand,
+    color,
+  } = data;
   const newPrice = oldPrice - (oldPrice * discount) / 100;
 
   const renderStars = () => {
@@ -41,17 +54,23 @@ const Product = ({ data }) => {
             {label}
           </span>
         )}
-        <span className="bg-gray-500 text-white p-2 sm:text-xl rounded-full inline-block absolute top-1/4 sm:top-1/3 right-0 z-1">
+        {/* <span className="bg-gray-500 text-white p-2 sm:text-xl rounded-full inline-block absolute top-1/4 sm:top-1/3 right-0 z-1">
           <LuShare2 />
-        </span>
+        </span> */}
         <span
-          className="bg-gray-900 text-white p-2 sm:text-xl rounded-full inline-block absolute top-1/2 right-0 z-1 cursor-pointer"
-          onClick={() => addToWishlist(data)}
+          className="bg-gray-200 text-gray-500 p-2 sm:text-xl rounded-full inline-block absolute top-0 right-0 z-1 cursor-pointer"
+          // onClick={() => addToWishlist(data)}
+          onClick={() => toggleWishlist(data)}
         >
-          <FaRegHeart />
+          {isInWishlist(id) ? (
+            <FaHeart className="text-red-500" />
+          ) : (
+            <FaRegHeart />
+          )}
         </span>
-        <div
-          className={`w-full sm:w-40 h-40 sm:h-52 mx-auto relative ${
+        <Link
+          to={`/products/${id}`}
+          className={`block w-full sm:w-40 h-40 sm:h-52 mx-auto relative ${
             stock === 0 ? "opacity-50" : "opacity-100"
           }`}
         >
@@ -60,7 +79,7 @@ const Product = ({ data }) => {
             alt={title}
             className="w-full h-full object-contain"
           />
-        </div>
+        </Link>
       </div>
 
       <div className="space-y-8">
@@ -105,7 +124,16 @@ const Product = ({ data }) => {
           {stock > 0 && (
             <div
               className="bg-primary text-white p-3 sm:p-4 rounded-lg cursor-pointer"
-              onClick={() => addToCart(data)}
+              // onClick={() => addToCart(data)}
+              onClick={() =>
+                addToCart({
+                  ...data,
+                  color: data?.color?.[0]?.name || "Default",
+                  quantity: 1, // ✅ always pass quantity
+                  oldPrice: data.oldPrice ?? 0,
+                  discount: data.discount ?? 0,
+                })
+              }
             >
               <LuShoppingCart className="text-base sm:text-lg" />
             </div>

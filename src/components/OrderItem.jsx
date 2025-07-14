@@ -3,7 +3,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { useCart } from "../context/CartContext";
 
 const OrderItem = ({ item, showDelete = false, className = "" }) => {
-  const { removeFromWishlist } = useCart();
+  const { removeFromCart } = useCart();
   const oldPrice = parseFloat(item?.oldPrice ?? 0);
   const discount = parseFloat(item?.discount ?? 0);
   const quantity = item?.quantity ?? 1;
@@ -29,7 +29,10 @@ const OrderItem = ({ item, showDelete = false, className = "" }) => {
           <p className="text-sm text-muted">Item #: {item?.id}</p>
           {item.color && (
             <p className="text-sm">
-              Color: <span>{item?.color}</span>
+              Color:
+              <span>
+                {typeof item.color === "object" ? item.color.name : item.color}
+              </span>
             </p>
           )}
         </div>
@@ -38,7 +41,7 @@ const OrderItem = ({ item, showDelete = false, className = "" }) => {
           {showDelete && (
             <RiDeleteBin6Line
               className="text-teritory cursor-pointer"
-              onClick={() => removeFromWishlist(item.id)}
+              onClick={() => removeFromCart(item.id)}
               title="Remove item"
             />
           )}

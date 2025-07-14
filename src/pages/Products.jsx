@@ -1,14 +1,16 @@
 import React from "react";
-import { useLoaderData } from "react-router";
+import { Banner, ProductList, Support } from "../layout";
 
-const Products = () => {
-  const data = useLoaderData();
+const Products = ({ className = "" }) => {
   return (
     <>
-      <div className="container max-w-[1340px] mx-auto px-3">
-        <div>Products</div>
-        <div>{JSON.stringify(data)}</div>
-      </div>
+      <Banner
+        title="All Products"
+        breadcrumb={[{ label: "Home", path: "/" }, { label: "Products" }]}
+        className="mb-12"
+      />
+      <ProductList className="mb-12 md:mb-16 xl:mb-20" />
+      <Support />
     </>
   );
 };

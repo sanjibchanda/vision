@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -6,15 +7,21 @@ import { Container } from "../components";
 import { assets } from "../assets/assets";
 
 const categories = [
-  { name: "SmartPhones", img: assets.product.iphone16Front },
-  { name: "Headphones", img: assets.product.Beats },
-  { name: "Speakers", img: assets.product.homePod },
-  { name: "SmartWatch", img: assets.product.appleWatch },
-  { name: "EarPods", img: assets.product.GalaxyBuds3Pro },
+  { name: "phones", img: assets.product.iphone16 },
+  { name: "headphones", img: assets.product.airpodsMax },
+  { name: "Watch", img: assets.product.AppleWatchSeries10 },
+  { name: "Airpod", img: assets.product.GalaxyBuds3Pro },
+  { name: "Mac", img: assets.product.MacBookPro },
   { name: "Accessories", img: assets.product.powerBank },
 ];
 
 const Category = ({ className = "" }) => {
+  const navigate = useNavigate();
+
+  const handleCategoryClick = (categoryName) => {
+    navigate(`/categories?category=${categoryName}`);
+  };
+
   var settings = {
     dots: false,
     arrows: true,
@@ -63,6 +70,7 @@ const Category = ({ className = "" }) => {
             {categories.map((item, index) => (
               <div
                 key={index}
+                onClick={() => handleCategoryClick(item.name)}
                 className="bg-surface p-5 text-center space-y-6 cursor-pointer"
               >
                 <img

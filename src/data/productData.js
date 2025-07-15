@@ -226,7 +226,7 @@ const productData = [
       { name: "Midnight", colorClass: "bg-[#1e242e]" },
       { name: "White", colorClass: "bg-white" },
     ],
-    category: "Watch",
+    category: "Speaker",
     sortBy: "upcoming",
     description:
       "Requires AirPods Max with the latest version of software, and iPhone and iPod touch models with the latest version of iOS; iPad models with the latest version of iPadOS; Apple Watch models with the latest version of watchOS; Mac models with the latest version of macOS; or Apple TV models with the latest version of tvOS.",

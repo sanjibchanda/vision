@@ -116,13 +116,18 @@ const OrderDetails = () => {
                 <p className="text-lg font-heading font-semibold">
                   Payment Method:
                 </p>
-                {orderData.payment === "Card" ? (
+                {orderData.payment?.method === "Credit Card" ? (
                   <div className="flex items-center gap-2 text-sm">
                     <img src={assets.visaCard} alt="Visa" />
-                    <span>Credit Card (**** **** **** 1026)</span>
+                    <span>
+                      {orderData.payment?.cardholderName || "N/A"} (**** ****
+                      **** {orderData.payment?.last4 || "0000"})
+                    </span>
                   </div>
                 ) : (
-                  <div className="text-sm">Cash on Delivery</div>
+                  <div className="text-sm">
+                    {orderData.payment?.method || "Not specified"}
+                  </div>
                 )}
               </div>
 

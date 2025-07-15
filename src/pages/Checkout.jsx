@@ -102,6 +102,24 @@ const Checkout = ({ className = "" }) => {
 
     const updatedTotal = total + shippingCost;
 
+    const cardholderName = formData.CardholderName || "";
+    const cardNumber = formData.CardNumber || "";
+    const last4 = cardNumber.slice(-4);
+    const expiry = formData.date || "";
+
+    // Mock credit card data (ONLY for demo)
+    const paymentDetails =
+      payment === "Card"
+        ? {
+            method: "Credit Card",
+            cardholderName,
+            last4,
+            expiry,
+          }
+        : {
+            method: "Cash on Delivery",
+          };
+
     // Save billing and order details in localStorage
     localStorage.setItem(
       "latestOrder",
@@ -114,7 +132,7 @@ const Checkout = ({ className = "" }) => {
         shipping,
         shippingCost,
         shippingLabel,
-        payment,
+        payment: paymentDetails,
       })
     );
 
@@ -302,11 +320,15 @@ const Checkout = ({ className = "" }) => {
                       name="CardholderName"
                       type="text"
                       placeholder="Cardholder Name"
+                      value={formData.CardholderName}
+                      onChange={handleInputChange}
                     />
                     <Input
                       name="CardNumber"
                       type="text"
                       placeholder="0000 0000 0000 0000"
+                      value={formData.CardNumber}
+                      onChange={handleInputChange}
                       icon={FaCreditCard}
                       iconPosition="right"
                     />
@@ -315,6 +337,8 @@ const Checkout = ({ className = "" }) => {
                         name="date"
                         type="date"
                         placeholder="Expiration Date (mm/yy)"
+                        value={formData.date}
+                        onChange={handleInputChange}
                       />
                       <Input
                         name="CVV"

@@ -30,7 +30,7 @@ import appleWatchUltra2 from "./images/product/apple-watch-ultra2.png";
 import appleWatch3 from "./images/product/apple-watch-3.png";
 import Beats from "./images/product/Beats.png";
 import GalaxyBuds3Pro from "./images/product/Galaxy-Buds3-Pro.png";
-import homePod from "./images/product/HomePod.png";
+import homePod from "./images/product/homePod.png";
 import iphone16 from "./images/product/iphone-16.png";
 import powerBank from "./images/product/powerBank.png";
 import airpodsMax from "./images/product/airpods-max.png";

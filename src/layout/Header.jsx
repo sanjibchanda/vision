@@ -6,7 +6,7 @@ import { Container, Navbar } from "../components";
 const Header = () => {
   return (
     <>
-      <header className="bg-white shadow-sm py-4">
+      <header className="sticky top-0 left-0 w-full z-50 bg-white shadow-sm py-4">
         <Container>
           <div className="flex justify-between items-center">
             <NavLink to="/">

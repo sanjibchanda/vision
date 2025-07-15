@@ -29,17 +29,24 @@ export const CartProvider = ({ children }) => {
   // 🛒 Add To Cart
   const addToCart = (product) => {
     setCartItems((prev) => {
-      const exists = prev.find((item) => item.id === product.id);
-      if (exists) {
+      // Match by both id and color
+      const existingItem = prev.find(
+        (item) => item.id === product.id && item.color === product.color
+      );
+
+      if (existingItem) {
+        // If same id + color already exists, just update quantity
         return prev.map((item) =>
-          item.id === product.id
+          item.id === product.id && item.color === product.color
             ? {
                 ...item,
                 quantity: (item.quantity ?? 1) + (product.quantity ?? 1),
-              } // Use passed quantity
+              }
             : item
         );
       }
+
+      // New item (id + color is unique)
       return [...prev, { ...product, quantity: product.quantity ?? 1 }];
     });
   };

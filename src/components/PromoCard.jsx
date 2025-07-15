@@ -15,7 +15,7 @@ const PromoCard = () => {
         </h3>
         <p className="text-muted">Get 25% Off on Headphones</p>
         <Link
-          to="/"
+          to="/categories"
           className="inline-flex items-center gap-1 text-sm lg:text-base text-accent font-heading font-semibold hover:text-primary"
         >
           Shop Now <IoIosArrowForward />

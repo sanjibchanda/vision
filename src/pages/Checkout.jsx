@@ -114,6 +114,7 @@ const Checkout = ({ className = "" }) => {
         shipping,
         shippingCost,
         shippingLabel,
+        payment,
       })
     );
 

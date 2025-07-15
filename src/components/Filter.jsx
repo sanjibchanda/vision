@@ -95,7 +95,7 @@ const Filter = ({
             )}
           </div>
         </div>
-        <div className="space-y-4 border-b border-border pb-4">
+        {/* <div className="space-y-4 border-b border-border pb-4">
           <div className="font-heading text-base font-semibold text-accent">
             Collections
           </div>
@@ -110,7 +110,7 @@ const Filter = ({
               Women Running <span>(125)</span>
             </Link>
           </div>
-        </div>
+        </div> */}
         <div className="space-y-4 border-b border-border pb-4">
           <div className="font-heading text-base font-semibold text-accent">
             Category

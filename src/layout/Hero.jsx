@@ -1,8 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router";
 import { assets } from "../assets/assets";
 import { Container, Button } from "../components";
 
 const Hero = ({ className = "" }) => {
+  const navigate = useNavigate();
+  const handleCheckout = () => {
+    navigate("/products");
+  };
   return (
     <>
       <section className={`hero-bg text-white py-12 xl:py-0 ${className}`}>
@@ -20,10 +25,14 @@ const Hero = ({ className = "" }) => {
                 Limited-time summer deals on our best-selling electronics.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Button variant="solid" color="light">
+                <Button variant="solid" color="light" onClick={handleCheckout}>
                   Shop Now
                 </Button>
-                <Button variant="outline" color="light">
+                <Button
+                  variant="outline"
+                  color="light"
+                  onClick={handleCheckout}
+                >
                   Explore Categories
                 </Button>
               </div>

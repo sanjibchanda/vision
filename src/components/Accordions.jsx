@@ -19,9 +19,10 @@ const Accordions = ({ data = [] }) => {
               {activeIndex === index ? <LuMinus /> : <LuPlus />}
             </button>
             {activeIndex === index && (
-              <div className="text-muted text-sm/6 mt-3">
-                <p>{item.description}</p>
-              </div>
+              <div
+                className="text-muted text-sm/6 mt-3"
+                dangerouslySetInnerHTML={{ __html: item.description }}
+              ></div>
             )}
           </li>
         ))}

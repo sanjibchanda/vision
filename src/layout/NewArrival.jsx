@@ -58,7 +58,7 @@ const NewArrival = ({ className = "" }) => {
                   {item.title}
                 </h4>
                 <Link
-                  to=""
+                  to="/products"
                   className="flex items-center gap-1 text-sm md:text-base font-medium"
                 >
                   Shop Now <IoIosArrowForward />

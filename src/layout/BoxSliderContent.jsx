@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -6,6 +7,11 @@ import { Container, Button } from "../components";
 import { assets } from "../assets/assets";
 
 const BoxSliderContent = ({ className = "" }) => {
+  const navigate = useNavigate();
+  const handleCheckout = () => {
+    navigate("/products");
+  };
+
   const settings = {
     dots: true,
     arrows: false,
@@ -52,7 +58,7 @@ const BoxSliderContent = ({ className = "" }) => {
               systems that can be controlled remotely, often using a smartphone
               or tablet.
             </p>
-            <Button variant="solid" color="dark">
+            <Button variant="solid" color="dark" onClick={handleCheckout}>
               Shop Now
             </Button>
           </div>

@@ -253,7 +253,7 @@ const ProductDetails = ({ data }) => {
                   </span>
                 </div>
               </div>
-              <Accordions data={productDescData[0].iphone16Pro} />
+              <Accordions data={productDescData[product.id]} />
             </div>
           </div>
         </Container>

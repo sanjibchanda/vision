@@ -258,7 +258,7 @@ const ProductDetails = ({ data }) => {
           </div>
         </Container>
       </section>
-
+      <Review className="mb-12 md:mb-16 xl:mb-20" />
       <section className="mb-12 md:mb-16 xl:mb-20">
         <Container className="space-y-6 md:space-y-8 xl:space-y-10">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
@@ -288,7 +288,7 @@ const ProductDetails = ({ data }) => {
           </div>
         </Container>
       </section>
-      <Review className="mb-12 md:mb-16 xl:mb-20" />
+      
       <Faq className="mb-12 md:mb-16 xl:mb-20" />
       <Support />
     </>

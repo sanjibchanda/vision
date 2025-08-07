@@ -27,14 +27,15 @@ const WishlistItem = ({ item, className = "" }) => {
         <div className="space-y-1 w-full">
           <p className="font-semibold font-heading">{item?.title}</p>
           <p className="text-sm text-muted">Item #: {item?.id}</p>
-          {item.color && (
+          <p className="text-sm">brand: {item?.brand}</p>
+          {/* {item.color && (
             <p className="text-sm">
               Color:
               <span>
                 {typeof item.color === "object" ? item.color.name : item.color}
               </span>
             </p>
-          )}
+          )} */}
         </div>
 
         <div className="flex flex-col justify-between items-end">
